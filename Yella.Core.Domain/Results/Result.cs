@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Archseptia.Core.Domain.Results
+namespace Yella.Core.Domain.Results
 {
     public class Result : IResult
     {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Text.Json.Serialization;
-using Archseptia.Core.Domain.Dto;
-using Archseptia.Core.Identity.Domain.Entities;
+﻿using Yella.Core.Domain.Dto;
 using Yella.Core.Identity.Domain.Entities;
 
-namespace Yella.Core.IdentityService.Dtos
+namespace Yella.Core.Identity.Domain.Dtos
 {
     public class AuthenticateDto<TUser, TRole> : EntityDto<Guid>
         where TUser : IdentityUser<TUser, TRole>

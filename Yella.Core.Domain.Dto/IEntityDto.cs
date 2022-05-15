@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Domain.Dto
+﻿namespace Yella.Core.Domain.Dto
 {
     public interface IEntityDto<out TKey> : IEntityDto
     {

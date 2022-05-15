@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using ValidationException = FluentValidation.ValidationException;
 
-namespace Archseptia.Core.CrossCuttingConcern.Validations.FluentValidation
+namespace Yella.Core.CrossCuttingConcern.Validations.FluentValidation
 {
     public static class FluentValidator
     {

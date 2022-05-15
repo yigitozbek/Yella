@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.EntityFrameworkCore;
-using Archseptia.Core.Identity.Domain.Entities;
+﻿using System.Linq.Expressions;
 using AutoMapper;
+using Yella.Core.Domain.Results;
+using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Identity.Domain.Entities;
 using Yella.Core.IdentityService.Interfaces;
 
-namespace Archseptia.Core.Identity.Service.Services
+namespace Yella.Core.IdentityService.Services
 {
     public class UserService<TUser, TRole> : IUserService<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>

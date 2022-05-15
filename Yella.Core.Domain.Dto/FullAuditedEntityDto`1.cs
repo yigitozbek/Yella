@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Archseptia.Core.Domain.Dto
+﻿namespace Yella.Core.Domain.Dto
 {
     public abstract class FullAuditedEntityDto<TKey> : AuditedEntityDto<TKey>, IFullAuditedEntityDto
         where TKey : struct

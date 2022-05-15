@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Entities;
-using Archseptia.Core.Domain.Results;
+﻿using System.Linq.Expressions;
+using Yella.Core.Domain.Entities;
+using Yella.Core.Domain.Results;
 
-namespace Archseptia.Core.EntityFrameworkCore
+namespace Yella.Core.EntityFrameworkCore
 {
     /// <summary>
     /// 

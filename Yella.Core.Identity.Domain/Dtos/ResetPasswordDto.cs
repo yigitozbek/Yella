@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Archseptia.Core.Domain.Dto;
+﻿using Yella.Core.Domain.Dto;
 
-namespace Archseptia.Core.Identity.Service.Dtos
+namespace Yella.Core.Identity.Domain.Dtos
 {
     public class ResetPasswordDto : EntityDto<Guid>
     {

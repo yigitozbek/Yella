@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Archseptia.Core.Domain.Dto;
+using Yella.Core.Domain.Dto;
 
 namespace Yella.Core.Dapper
 {

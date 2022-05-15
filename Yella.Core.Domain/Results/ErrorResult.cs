@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Domain.Results
+﻿namespace Yella.Core.Domain.Results
 {
     public class ErrorResult : Result
     {

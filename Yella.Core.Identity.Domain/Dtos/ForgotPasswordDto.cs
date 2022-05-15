@@ -1,6 +1,6 @@
-﻿using Archseptia.Core.Domain.Dto;
+﻿using Yella.Core.Domain.Dto;
 
-namespace Yella.Core.IdentityService.Dtos
+namespace Yella.Core.Identity.Domain.Dtos
 {
     public class ForgotPasswordDto : EntityDto<int>
     {

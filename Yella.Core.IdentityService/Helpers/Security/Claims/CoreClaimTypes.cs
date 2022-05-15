@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Identity.Service.Helpers.Security.Claims
+﻿namespace Yella.Core.IdentityService.Helpers.Security.Claims
 {
     public static class CoreClaimTypes
     {

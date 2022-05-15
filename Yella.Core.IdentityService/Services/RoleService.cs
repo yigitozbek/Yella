@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Archseptia.Core.EntityFrameworkCore;
-using Archseptia.Core.Identity.Domain.Entities;
+﻿using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Identity.Domain.Entities;
 using Yella.Core.IdentityService.Interfaces;
 
-namespace Archseptia.Core.Identity.Service.Services
+namespace Yella.Core.IdentityService.Services
 {
     public class RoleService<TUser, TRole> : IRoleService<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>

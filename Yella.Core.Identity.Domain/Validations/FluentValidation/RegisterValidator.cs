@@ -1,10 +1,10 @@
-﻿using Archseptia.Core.Identity.Service.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Yella.Core.Identity.Domain.Dtos;
 
 namespace Yella.Core.Identity.Domain.Validations.FluentValidation
 {

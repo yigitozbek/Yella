@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Security.Claims;
-using Archseptia.Core.Identity.Domain.Entities;
+﻿using System.Security.Claims;
 using Yella.Core.Identity.Domain.Entities;
 
-namespace Archseptia.Core.Identity.Service.Helpers.Security.JWT
+namespace Yella.Core.IdentityService.Helpers.Security.JWT
 {
     public interface ITokenHelper<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>

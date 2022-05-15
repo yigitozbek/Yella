@@ -1,10 +1,4 @@
-﻿using Archseptia.Core.EntityFrameworkCore;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Helpers.Security.Hashing;
-using Archseptia.Core.Identity.Service.Helpers.Security.JWT;
-using Archseptia.Core.Identity.Service.Interfaces;
-using Archseptia.Core.Identity.Service.Services;
-using Autofac;
+﻿using Autofac;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.IdentityService.Helpers.Security.Hashing;
+using Yella.Core.IdentityService.Helpers.Security.JWT;
 using Yella.Core.IdentityService.Interfaces;
+using Yella.Core.IdentityService.Services;
 
 namespace Yella.Core.IdentityService.IoC.DependencyResolvers
 {

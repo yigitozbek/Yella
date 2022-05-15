@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Archseptia.Core.Domain.Entities
+namespace Yella.Core.Domain.Entities
 {
     public abstract class Entity : IEntity
     {

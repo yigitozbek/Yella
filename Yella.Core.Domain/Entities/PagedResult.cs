@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Archseptia.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities
 {
     public class PagedResult<TEntity> 
     {

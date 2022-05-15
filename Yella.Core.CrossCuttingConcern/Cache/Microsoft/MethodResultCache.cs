@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.Caching;
 
-namespace Archseptia.Core.CrossCuttingConcern.Cache.Microsoft
+namespace Yella.Core.CrossCuttingConcern.Cache.Microsoft
 {
     public class MethodResultCache
     {

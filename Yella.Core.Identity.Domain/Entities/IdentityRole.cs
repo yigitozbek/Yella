@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Archseptia.Core.Domain.Entities;
-using Archseptia.Core.Identity.Domain.Entities;
+using Yella.Core.Domain.Entities;
 
 namespace Yella.Core.Identity.Domain.Entities
 {

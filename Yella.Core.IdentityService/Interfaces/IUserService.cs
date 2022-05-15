@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.Identity.Domain.Entities;
+using Yella.Core.Domain.Results;
 using Yella.Core.Identity.Domain.Entities;
 
 namespace Yella.Core.IdentityService.Interfaces

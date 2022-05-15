@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using Archseptia.Core.CrossCuttingConcern.Cache.Microsoft;
+﻿using System.Security.Principal;
 using PostSharp.Aspects;
 using PostSharp.Serialization;
+using Yella.Core.CrossCuttingConcern.Cache.Microsoft;
 
-namespace Archseptia.Core.Aspect.Cache.PostSharp
+namespace Yella.Core.Aspect.Caches.PostSharp
 {
     [PSerializable]
     public class CacheAspect : MethodInterceptionAspect

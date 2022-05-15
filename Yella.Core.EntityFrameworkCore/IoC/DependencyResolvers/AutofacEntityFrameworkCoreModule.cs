@@ -1,5 +1,4 @@
-﻿using Archseptia.Core.EntityFrameworkCore;
-using Autofac;
+﻿using Autofac;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

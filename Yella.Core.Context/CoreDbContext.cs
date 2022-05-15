@@ -1,14 +1,11 @@
-﻿using System;
-using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
-using Archseptia.Core.Context.Extensions;
-using Archseptia.Core.Domain.Entities;
+﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Yella.Core.Context.Extensions;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.Context
+namespace Yella.Core.Context
 {
     public class CoreDbContext<TContext> : DbContext, IApplicationDbContext
         where TContext : DbContext

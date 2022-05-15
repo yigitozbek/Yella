@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Archseptia.Core.Identity.Service.Helpers.Security.JWT
+﻿namespace Yella.Core.IdentityService.Helpers.Security.JWT
 {
     public class AccessToken
     {

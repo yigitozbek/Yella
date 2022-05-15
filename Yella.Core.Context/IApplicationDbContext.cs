@@ -1,8 +1,6 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Archseptia.Core.Context
+namespace Yella.Core.Context
 {
     public interface IApplicationDbContext
     {

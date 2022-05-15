@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Dtos;
+﻿using Yella.Core.Domain.Results;
+using Yella.Core.Identity.Domain.Dtos;
 using Yella.Core.Identity.Domain.Entities;
 
-namespace Archseptia.Core.Identity.Service.Interfaces
+namespace Yella.Core.IdentityService.Interfaces
 {
     public interface IPermissionService<TUser, TRole> 
         where TUser : IdentityUser<TUser, TRole>

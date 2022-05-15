@@ -1,5 +1,4 @@
-﻿using Archseptia.Core.Domain.Results;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
 using PostSharp.Serialization;
@@ -7,6 +6,7 @@ using System;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text.Json;
+using Yella.Core.Domain.Results;
 
 namespace Yella.Core.Aspect.Authorizations.PostSharp
 {

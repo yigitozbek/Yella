@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using Archseptia.Core.Domain.Entities;
+﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.Context.Extensions
+namespace Yella.Core.Context.Extensions
 {
     public static class FilterExtensions
     {

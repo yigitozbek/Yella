@@ -9,9 +9,9 @@ using FluentValidation;
 using Newtonsoft.Json;
 using PostSharp.Aspects.Advices;
 using PostSharp.Aspects.Dependencies;
+using Yella.Core.CrossCuttingConcern.Validations.FluentValidation;
 using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;
 using ValidationResult = FluentValidation.Results.ValidationResult;
-using Archseptia.Core.CrossCuttingConcern.Validations.FluentValidation;
 
 namespace Yella.Core.Aspect.Validations.Postsharp
 {

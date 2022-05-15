@@ -1,7 +1,7 @@
-﻿using Archseptia.Core.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.EntityFrameworkCore
+namespace Yella.Core.EntityFrameworkCore
 {
     public class EfCoreGenericRepository<TEntity> : RepositoryBase<TEntity>, IRepository<TEntity>
         where TEntity : Entity

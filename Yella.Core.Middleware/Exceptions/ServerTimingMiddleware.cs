@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
-namespace Yella.Core.Middleware
+namespace Yella.Core.Middleware.Exceptions
 {
     public class ServerTimingMiddleware : IMiddleware
     {

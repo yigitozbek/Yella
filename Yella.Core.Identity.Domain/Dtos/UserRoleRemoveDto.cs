@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Archseptia.Core.Domain.Dto;
+﻿using System.ComponentModel.DataAnnotations;
+using Yella.Core.Domain.Dto;
 
-namespace Archseptia.Core.Identity.Service.Dtos
+namespace Yella.Core.Identity.Domain.Dtos
 {
     public class UserRoleRemoveDto : EntityDto
     {

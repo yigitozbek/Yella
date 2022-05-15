@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Archseptia.Core.Aspect.Transaction.PostSharp;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.EntityFrameworkCore;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Dtos;
-using Archseptia.Core.Identity.Service.Interfaces;
-using Archseptia.Core.Service.Constants;
+﻿using Yella.Core.Aspect.Transactions.PostSharp;
+using Yella.Core.Domain.Results;
+using Yella.Core.EntityFrameworkCore;
+using Yella.Core.Identity.Domain.Constants;
+using Yella.Core.Identity.Domain.Dtos;
 using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.IdentityService.Interfaces;
 
-namespace Archseptia.Core.Identity.Service.Services
+namespace Yella.Core.IdentityService.Services
 {
     public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>

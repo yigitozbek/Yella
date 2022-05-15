@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Middleware
+﻿namespace Yella.Core.Middleware.Exceptions
 {
     public class HttpExceptionMiddlewareOptions
     {

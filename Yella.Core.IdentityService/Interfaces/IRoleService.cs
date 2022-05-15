@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Archseptia.Core.Identity.Domain.Entities;
 using Yella.Core.Identity.Domain.Entities;
 
 namespace Yella.Core.IdentityService.Interfaces

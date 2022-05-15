@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 
-namespace Archseptia.Core.Identity.Service.Helpers.Permissions
+namespace Yella.Core.IdentityService.Helpers.Permissions
 {
     public static class PermissionHelper
     { 

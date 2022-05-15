@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Dto;
+﻿using System.Data.SqlClient;
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using Yella.Core.Dapper;
+using Yella.Core.Domain.Dto;
 
-namespace Archseptia.Core.Dapper
+namespace Yella.Core.Dapper
 {
     public class DapperRepository : IDapperRepository
     {

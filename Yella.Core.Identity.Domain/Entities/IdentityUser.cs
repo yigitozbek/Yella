@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Archseptia.Core.Domain.Entities;
-using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.Identity.Domain.Entities
+namespace Yella.Core.Identity.Domain.Entities
 {
     public class IdentityUser<TUser, TRole> : FullAuditedEntity<Guid>
         where TUser : IdentityUser<TUser, TRole>

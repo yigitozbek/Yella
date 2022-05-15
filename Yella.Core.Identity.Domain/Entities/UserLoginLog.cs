@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
-using Archseptia.Core.Domain.Entities;
-using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.Identity.Domain.Entities
+namespace Yella.Core.Identity.Domain.Entities
 {
     public class UserLoginLog<TUser, TRole> : Entity<long>
         where TUser : IdentityUser<TUser, TRole>

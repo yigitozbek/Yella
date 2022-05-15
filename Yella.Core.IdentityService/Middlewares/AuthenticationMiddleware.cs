@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
-namespace Archseptia.Core.Identity.Service.Middlewares
+namespace Yella.Core.IdentityService.Middlewares
 {
     public class AuthenticationMiddleware
     {

@@ -1,31 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using Archseptia.Core.Aspect.Transaction.PostSharp;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.EntityFrameworkCore;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Dtos;
-using Archseptia.Core.Identity.Service.Helpers.Security.Hashing;
-using Archseptia.Core.Identity.Service.Helpers.Security.JWT;
-using Archseptia.Core.Identity.Service.Interfaces;
-using Archseptia.Core.Service.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Yella.Core.Aspect.Transactions.PostSharp;
 using Yella.Core.Aspect.Validations.Postsharp;
+using Yella.Core.Domain.Results;
+using Yella.Core.EntityFrameworkCore;
+using Yella.Core.Identity.Domain.Constants;
+using Yella.Core.Identity.Domain.Dtos;
 using Yella.Core.Identity.Domain.Entities;
 using Yella.Core.Identity.Domain.Validations.FluentValidation;
-using Yella.Core.IdentityService.Dtos;
+using Yella.Core.IdentityService.Helpers.Security.Hashing;
+using Yella.Core.IdentityService.Helpers.Security.JWT;
 using Yella.Core.IdentityService.Interfaces;
-using IResult = Archseptia.Core.Domain.Results.IResult;
+using IResult = Yella.Core.Domain.Results.IResult;
 
-namespace Archseptia.Core.Identity.Service.Services
+namespace Yella.Core.IdentityService.Services
 {
     public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>, new()

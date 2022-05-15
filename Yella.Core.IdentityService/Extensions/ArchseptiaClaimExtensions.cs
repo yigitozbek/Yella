@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using Archseptia.Core.Identity.Service.Helpers.Security.Claims;
+﻿using System.Security.Claims;
+using Yella.Core.IdentityService.Helpers.Security.Claims;
 
-namespace Archseptia.Core.Identity.Service.Extensions
+namespace Yella.Core.IdentityService.Extensions
 {
     public static class ArchseptiaClaimExtensions
     {

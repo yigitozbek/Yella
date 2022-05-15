@@ -2,7 +2,7 @@
 using PostSharp.Aspects;
 using PostSharp.Serialization;
 
-namespace Archseptia.Core.Aspect.Transaction.PostSharp
+namespace Yella.Core.Aspect.Transactions.PostSharp
 {
     [PSerializable]
     public class TransactionAspect : OnMethodBoundaryAspect

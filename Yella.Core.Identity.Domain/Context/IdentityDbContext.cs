@@ -1,7 +1,6 @@
-﻿using Archseptia.Core.Context;
-using Archseptia.Core.Identity.Domain.Entities;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Yella.Core.Context;
 using Yella.Core.Identity.Domain.Entities;
 
 namespace Yella.Core.Identity.Domain.Context

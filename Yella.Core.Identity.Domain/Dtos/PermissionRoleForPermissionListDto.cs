@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Identity.Service.Dtos
+﻿namespace Yella.Core.Identity.Domain.Dtos
 {
     public class PermissionRoleForPermissionListDto
     {

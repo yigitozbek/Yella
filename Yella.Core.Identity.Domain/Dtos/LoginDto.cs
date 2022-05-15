@@ -1,7 +1,6 @@
-﻿using System;
-using Archseptia.Core.Domain.Dto;
+﻿using Yella.Core.Domain.Dto;
 
-namespace Archseptia.Core.Identity.Service.Dtos
+namespace Yella.Core.Identity.Domain.Dtos
 {
     public class LoginDto : EntityDto<Guid>
     {

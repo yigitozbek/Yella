@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Archseptia.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities
 {
     public interface IFullAuditedEntity
     {

@@ -1,8 +1,7 @@
-﻿using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Archseptia.Core.Identity.Service.Helpers.Security.Hashing
+namespace Yella.Core.IdentityService.Helpers.Security.Hashing
 {
     public class PasswordHasher : IPasswordHasher
     {

@@ -1,8 +1,4 @@
 ﻿using System;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Helpers.Security.Encryption;
-using Archseptia.Core.Identity.Service.Helpers.Security.JWT;
-using Archseptia.Core.Identity.Service.Middlewares;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.IdentityService.Helpers.Security.Encryption;
+using Yella.Core.IdentityService.Helpers.Security.JWT;
+using Yella.Core.IdentityService.Middlewares;
 
 namespace Yella.Core.IdentityService.Extensions
 {

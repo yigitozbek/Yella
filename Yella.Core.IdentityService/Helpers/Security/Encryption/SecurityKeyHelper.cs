@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Archseptia.Core.Identity.Service.Helpers.Security.Encryption
+namespace Yella.Core.IdentityService.Helpers.Security.Encryption
 {
     public static class SecurityKeyHelper
     {

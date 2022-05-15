@@ -1,18 +1,14 @@
 ﻿#nullable enable
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Extensions;
-using Archseptia.Core.Identity.Service.Helpers.Security.Encryption;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.IdentityService.Extensions;
+using Yella.Core.IdentityService.Helpers.Security.Encryption;
 
-namespace Archseptia.Core.Identity.Service.Helpers.Security.JWT
+namespace Yella.Core.IdentityService.Helpers.Security.JWT
 {
     public class JwtHelper<TUser, TRole> : ITokenHelper<TUser, TRole>
         where TUser : IdentityUser<TUser, TRole>

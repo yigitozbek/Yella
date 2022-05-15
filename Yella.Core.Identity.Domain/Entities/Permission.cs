@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Archseptia.Core.Domain.Entities;
-using Yella.Core.Identity.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using Yella.Core.Domain.Entities;
 
-namespace Archseptia.Core.Identity.Domain.Entities
+namespace Yella.Core.Identity.Domain.Entities
 {
     public class Permission<TUser, TRole> : Entity<short>
         where TUser : IdentityUser<TUser, TRole>

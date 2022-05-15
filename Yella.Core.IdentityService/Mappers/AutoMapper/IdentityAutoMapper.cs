@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Archseptia.Core.Identity.Service.Mappers.AutoMapper
+namespace Yella.Core.IdentityService.Mappers.AutoMapper
 {
     public abstract class IdentityAutoMapper : Profile
     {

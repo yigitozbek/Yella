@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Entities;
-using Archseptia.Core.Domain.Results;
+﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Yella.Core.Domain.Entities;
+using Yella.Core.Domain.Results;
 using Yella.Core.EntityFrameworkCore.Constants;
 
-namespace Archseptia.Core.EntityFrameworkCore
+namespace Yella.Core.EntityFrameworkCore
 {
     public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, IRepository<TEntity, TKey>
         where TEntity : Entity<TKey>

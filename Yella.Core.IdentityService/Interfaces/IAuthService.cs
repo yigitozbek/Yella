@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Archseptia.Core.Domain.Results;
-using Archseptia.Core.Identity.Domain.Entities;
-using Archseptia.Core.Identity.Service.Dtos;
-using Archseptia.Core.Identity.Service.Helpers.Security.JWT;
+﻿using System.Security.Claims;
+using Yella.Core.Domain.Results;
+using Yella.Core.Identity.Domain.Dtos;
 using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.IdentityService.Helpers.Security.JWT;
 
-namespace Archseptia.Core.Identity.Service.Interfaces
+namespace Yella.Core.IdentityService.Interfaces
 {
     public interface IAuthService<TUser, TRole> 
         where TUser : IdentityUser<TUser, TRole>

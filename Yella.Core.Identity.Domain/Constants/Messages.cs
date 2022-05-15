@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Service.Constants
+﻿namespace Yella.Core.Identity.Domain.Constants
 {
     public static class Messages
     {

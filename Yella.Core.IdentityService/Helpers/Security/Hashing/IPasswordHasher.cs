@@ -1,4 +1,4 @@
-﻿namespace Archseptia.Core.Identity.Service.Helpers.Security.Hashing
+﻿namespace Yella.Core.IdentityService.Helpers.Security.Hashing
 {
     public interface IPasswordHasher
     {
