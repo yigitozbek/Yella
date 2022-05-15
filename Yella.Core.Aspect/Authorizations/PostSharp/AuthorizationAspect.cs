@@ -18,10 +18,7 @@ namespace Yella.Core.Aspect.Authorizations.PostSharp
     {
         public string? Permission = null;
 
-        public AuthorizationAspect(string? permission = null)
-        {
-            Permission = permission;
-        }
+        public AuthorizationAspect(string? permission = null) => Permission = permission;
 
         public override void OnEntry(MethodExecutionArgs args)
         {
