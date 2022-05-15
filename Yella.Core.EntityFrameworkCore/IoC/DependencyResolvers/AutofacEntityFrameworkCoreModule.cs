@@ -11,11 +11,8 @@ namespace Yella.Core.EntityFrameworkCore.IoC.DependencyResolvers
 {
     public class AutofacEntityFrameworkCoreModule : Module
     {
-
         protected override void Load(ContainerBuilder builder)
         {
-
-
             builder.RegisterGeneric(typeof(EfCoreGenericRepository<,>)).As(typeof(IRepository<,>));
             builder.RegisterGeneric(typeof(EfCoreGenericRepository<>)).As(typeof(IRepository<>));
         }

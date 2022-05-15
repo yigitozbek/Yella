@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using FluentValidation;
+﻿using FluentValidation;
 using Newtonsoft.Json;
 using ValidationException = FluentValidation.ValidationException;
 

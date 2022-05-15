@@ -32,7 +32,7 @@ namespace Yella.Core.Aspect.Validations.Postsharp
 
             var entityType = Validator.BaseType.GetGenericArguments()[0];
             List<object> entities = args.Arguments.Where(t => t.GetType() == entityType).ToList();
-            
+                
             FluentValidator.Validate(entities, Validator);
 
         }
