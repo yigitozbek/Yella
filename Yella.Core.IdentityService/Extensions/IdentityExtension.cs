@@ -13,7 +13,7 @@ using Yella.Core.IdentityService.Middlewares;
 
 namespace Yella.Core.IdentityService.Extensions
 {
-    public static class ArchseptiaIdentityExtension
+    public static class IdentityExtension
     {
         public static void AddIdentityService<TUser, TRole>(this IServiceCollection services,
             IConfiguration configuration)

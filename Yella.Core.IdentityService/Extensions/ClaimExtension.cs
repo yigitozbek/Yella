@@ -3,7 +3,7 @@ using Yella.Core.IdentityService.Helpers.Security.Claims;
 
 namespace Yella.Core.IdentityService.Extensions
 {
-    public static class ArchseptiaClaimExtensions
+    public static class ClaimExtension
     {
         public static void AddEmail(this ICollection<Claim> claims, string email) => claims.Add(new Claim(CoreClaimTypes.Email, email));
         
