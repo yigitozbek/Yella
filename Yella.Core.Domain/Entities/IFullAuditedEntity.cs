@@ -1,9 +1,8 @@
-﻿namespace Yella.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities;
+
+public interface IFullAuditedEntity
 {
-    public interface IFullAuditedEntity
-    {
-        bool IsDeleted { get; }
-        Guid? DeleterId { get; }
-        DateTime? DeletionTime { get; }
-    }
+    bool IsDeleted { get; }
+    Guid? DeleterId { get; }
+    DateTime? DeletionTime { get; }
 }

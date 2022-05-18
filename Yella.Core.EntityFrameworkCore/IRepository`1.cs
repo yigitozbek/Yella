@@ -1,24 +1,23 @@
 ﻿#nullable enable
 using System.Linq.Expressions;
 using Yella.Core.Domain.Entities;
-using Yella.Core.Domain.Results;
+using Yella.Core.Helper.Results;
 
-namespace Yella.Core.EntityFrameworkCore
+namespace Yella.Core.EntityFrameworkCore;
+
+public interface IRepository<TEntity, in TKey> : IRepositoryBase<TEntity>
+    where TEntity : Entity<TKey>
+    where TKey : struct
 {
-    public interface IRepository<TEntity, in TKey> : IRepositoryBase<TEntity>
-        where TEntity : Entity<TKey>
-        where TKey : struct
-    {
-        Task<IResult> DeleteAsync(TKey id);
+    Task<IResult> DeleteAsync(TKey id);
         
-        Task<TEntity> GetAsync(TKey id);
-        Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
+    Task<TEntity> GetAsync(TKey id);
+    Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
 
-        Task<TEntity?> FirstOrDefaultAsync(TKey id);
-        Task<TEntity?> FirstOrDefaultAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
+    Task<TEntity?> FirstOrDefaultAsync(TKey id);
+    Task<TEntity?> FirstOrDefaultAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
         
-        Task<IEnumerable<TEntity>> GetListAsync() { return GetListAsync(null); }
-        Task<IEnumerable<TEntity>> WithDetailsAsync(params Expression<Func<TEntity, object>>[] includes);
+    Task<IEnumerable<TEntity>> GetListAsync() { return GetListAsync(null); }
+    Task<IEnumerable<TEntity>> WithDetailsAsync(params Expression<Func<TEntity, object>>[] includes);
     
-    }
 }

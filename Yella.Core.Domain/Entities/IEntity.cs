@@ -1,7 +1,6 @@
-﻿namespace Yella.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities;
+
+public interface IEntity<out TKey> : IEntity
 {
-    public interface IEntity<out TKey> : IEntity
-    {
-        TKey Id { get; }
-    }
+    TKey Id { get; }
 }

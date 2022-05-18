@@ -1,12 +1,11 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace Yella.Core.IdentityService.Helpers.Security.Encryption
+namespace Yella.Core.IdentityService.Helpers.Security.Encryption;
+
+public class SigningCredentialsHelper
 {
-    public class SigningCredentialsHelper
+    public static SigningCredentials CreateSigningCredentials(SecurityKey securityKey)
     {
-        public static SigningCredentials CreateSigningCredentials(SecurityKey securityKey)
-        {
-            return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
-        }
+        return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
     }
 }

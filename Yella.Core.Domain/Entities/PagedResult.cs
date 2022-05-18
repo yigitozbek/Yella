@@ -1,16 +1,15 @@
-﻿namespace Yella.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities;
+
+public class PagedResult<TEntity> 
 {
-    public class PagedResult<TEntity> 
+    public PagedResult(long totalCount, IReadOnlyList<TEntity> items)
     {
-        public PagedResult(long totalCount, IReadOnlyList<TEntity> items)
-        {
-            _items = items;
-            TotalCount = totalCount;
-        }
-
-        public long TotalCount { get; set; }
-
-        private readonly IReadOnlyList<TEntity> _items;
-
+        _items = items;
+        TotalCount = totalCount;
     }
+
+    public long TotalCount { get; set; }
+
+    private readonly IReadOnlyList<TEntity> _items;
+
 }

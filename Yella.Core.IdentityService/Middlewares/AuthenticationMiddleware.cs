@@ -1,20 +1,19 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Yella.Core.IdentityService.Middlewares
+namespace Yella.Core.IdentityService.Middlewares;
+
+public class AuthenticationMiddleware
 {
-    public class AuthenticationMiddleware
+    private readonly RequestDelegate _next;
+
+    public AuthenticationMiddleware(RequestDelegate next) => _next = next;
+
+    public async Task InvokeAsync(HttpContext context)
     {
-        private readonly RequestDelegate _next;
+        var token = context.Session.GetString("Token");
+        if (!string.IsNullOrEmpty(token))
+            context.Request.Headers.Add("Authorization", "Bearer " + token);
 
-        public AuthenticationMiddleware(RequestDelegate next) => _next = next;
-
-        public async Task InvokeAsync(HttpContext context)
-        {
-            var token = context.Session.GetString("Token");
-            if (!string.IsNullOrEmpty(token))
-                context.Request.Headers.Add("Authorization", "Bearer " + token);
-
-            await _next(context);
-        }
+        await _next(context);
     }
 }

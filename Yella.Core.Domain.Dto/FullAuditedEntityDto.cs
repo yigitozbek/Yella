@@ -1,11 +1,10 @@
-﻿namespace Yella.Core.Domain.Dto
-{
-    public abstract class FullAuditedEntityDto : AuditedEntityDto, IFullAuditedEntityDto
-    {
-        protected FullAuditedEntityDto() : base() { }
+﻿namespace Yella.Core.Domain.Dto;
 
-        public virtual bool IsDeleted { get; protected set; }
-        public virtual Guid? DeleterId { get; protected set; }
-        public virtual DateTime? DeletionTime { get; protected set; }
-    }
+public abstract class FullAuditedEntityDto : AuditedEntityDto, IFullAuditedEntityDto
+{
+    protected FullAuditedEntityDto() : base() { }
+
+    public virtual bool IsDeleted { get; protected set; }
+    public virtual Guid? DeleterId { get; protected set; }
+    public virtual DateTime? DeletionTime { get; protected set; }
 }

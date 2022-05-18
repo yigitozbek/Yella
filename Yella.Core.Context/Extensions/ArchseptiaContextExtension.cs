@@ -2,15 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yella.Core.Context.Extensions
+namespace Yella.Core.Context.Extensions;
+
+public static class ArchseptiaContextExtension
 {
-    public static class ArchseptiaContextExtension
+    public static void AddContextService<TApplicationDbContext>(this IServiceCollection services,
+        IConfiguration configuration,string connectionString) where TApplicationDbContext : DbContext
     {
-        public static void AddContextService<TApplicationDbContext>(this IServiceCollection services,
-            IConfiguration configuration) where TApplicationDbContext : DbContext
-        {
-            var connection = configuration["ConnectionStrings:SqlServer"];
-            services.AddDbContext<TApplicationDbContext>(option => option.UseSqlServer(connection));
-        }
+        services.AddDbContext<TApplicationDbContext>(option => option.UseSqlServer(connectionString));
     }
 }

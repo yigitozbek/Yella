@@ -1,8 +1,7 @@
-﻿namespace Yella.Core.Domain.Dto
+﻿namespace Yella.Core.Domain.Dto;
+
+public interface IAuditedEntityDto
 {
-    public interface IAuditedEntityDto
-    {
-        DateTime? LastModificationTime { get; }
-        Guid? LastModifierId { get; }
-    }
+    DateTime? LastModificationTime { get; }
+    Guid? LastModifierId { get; }
 }

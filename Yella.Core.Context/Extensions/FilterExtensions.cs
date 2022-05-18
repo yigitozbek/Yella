@@ -2,20 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using Yella.Core.Domain.Entities;
 
-namespace Yella.Core.Context.Extensions
+namespace Yella.Core.Context.Extensions;
+
+public static class FilterExtensions
 {
-    public static class FilterExtensions
-    {
-        public static void SetSoftDeleteFilter(this ModelBuilder modelBuilder, Type entityType) =>
-            SetSoftDeleteFilterMethod.MakeGenericMethod(entityType)
-                .Invoke(null, new object[] { modelBuilder });
+    public static void SetSoftDeleteFilter(this ModelBuilder modelBuilder, Type entityType) =>
+        SetSoftDeleteFilterMethod.MakeGenericMethod(entityType)
+            .Invoke(null, new object[] { modelBuilder });
 
-        private static readonly MethodInfo SetSoftDeleteFilterMethod = typeof(FilterExtensions)
-            .GetMethods(BindingFlags.Public | BindingFlags.Static)
-            .Single(t => t.IsGenericMethod && t.Name == "SetSoftDeleteFilter");
+    private static readonly MethodInfo SetSoftDeleteFilterMethod = typeof(FilterExtensions)
+        .GetMethods(BindingFlags.Public | BindingFlags.Static)
+        .Single(t => t.IsGenericMethod && t.Name == "SetSoftDeleteFilter");
 
-        public static void SetSoftDeleteFilter<TEntity>(this ModelBuilder modelBuilder)
-            where TEntity : class, IFullAuditedEntity =>
-            modelBuilder.Entity<TEntity>().HasQueryFilter(x => !x.IsDeleted);
-    }
+    public static void SetSoftDeleteFilter<TEntity>(this ModelBuilder modelBuilder)
+        where TEntity : class, IFullAuditedEntity =>
+        modelBuilder.Entity<TEntity>().HasQueryFilter(x => !x.IsDeleted);
 }

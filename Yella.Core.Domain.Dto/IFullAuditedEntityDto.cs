@@ -1,9 +1,8 @@
-﻿namespace Yella.Core.Domain.Dto
+﻿namespace Yella.Core.Domain.Dto;
+
+public interface IFullAuditedEntityDto
 {
-    public interface IFullAuditedEntityDto
-    {
-        bool IsDeleted { get; }
-        Guid? DeleterId { get; }
-        DateTime? DeletionTime { get; }
-    }
+    bool IsDeleted { get; }
+    Guid? DeleterId { get; }
+    DateTime? DeletionTime { get; }
 }

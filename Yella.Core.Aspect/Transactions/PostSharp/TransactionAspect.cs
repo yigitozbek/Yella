@@ -2,27 +2,26 @@
 using PostSharp.Aspects;
 using PostSharp.Serialization;
 
-namespace Yella.Core.Aspect.Transactions.PostSharp
+namespace Yella.Core.Aspect.Transactions.PostSharp;
+
+[PSerializable]
+public class TransactionAspect : OnMethodBoundaryAspect
 {
-    [PSerializable]
-    public class TransactionAspect : OnMethodBoundaryAspect
+    public override void OnEntry(MethodExecutionArgs args)
     {
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            var transactionScope = new TransactionScope(TransactionScopeOption.Required, TransactionScopeAsyncFlowOption.Enabled);
-            args.MethodExecutionTag = transactionScope;
-        }
+        var transactionScope = new TransactionScope(TransactionScopeOption.Required, TransactionScopeAsyncFlowOption.Enabled);
+        args.MethodExecutionTag = transactionScope;
+    }
 
-        public override void OnSuccess(MethodExecutionArgs args)
-        {
-            var transactionScope = (TransactionScope)args.MethodExecutionTag;
-            transactionScope.Complete();
-        }
+    public override void OnSuccess(MethodExecutionArgs args)
+    {
+        var transactionScope = (TransactionScope)args.MethodExecutionTag;
+        transactionScope.Complete();
+    }
 
-        public override void OnExit(MethodExecutionArgs args)
-        {
-            var transactionScope = (TransactionScope)args.MethodExecutionTag;
-            transactionScope.Dispose();
-        }
+    public override void OnExit(MethodExecutionArgs args)
+    {
+        var transactionScope = (TransactionScope)args.MethodExecutionTag;
+        transactionScope.Dispose();
     }
 }

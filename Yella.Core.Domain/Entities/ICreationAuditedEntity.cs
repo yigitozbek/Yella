@@ -1,8 +1,7 @@
-﻿namespace Yella.Core.Domain.Entities
+﻿namespace Yella.Core.Domain.Entities;
+
+public interface ICreationAuditedEntity
 {
-    public interface ICreationAuditedEntity
-    {
-        DateTime CreationTime { get; }
-        Guid? CreatorId { get; }
-    }
+    DateTime CreationTime { get; }
+    Guid? CreatorId { get; }
 }

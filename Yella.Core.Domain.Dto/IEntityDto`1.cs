@@ -1,7 +1,5 @@
-﻿namespace Yella.Core.Domain.Dto
-{
-    public interface IEntityDto
-    {
-    }
+﻿namespace Yella.Core.Domain.Dto;
 
+public interface IEntityDto
+{
 }

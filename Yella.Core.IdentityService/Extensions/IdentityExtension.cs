@@ -11,28 +11,28 @@ using Yella.Core.IdentityService.Helpers.Security.Encryption;
 using Yella.Core.IdentityService.Helpers.Security.JWT;
 using Yella.Core.IdentityService.Middlewares;
 
-namespace Yella.Core.IdentityService.Extensions
+namespace Yella.Core.IdentityService.Extensions;
+
+public static class IdentityExtension
 {
-    public static class IdentityExtension
+    public static void AddIdentityService<TUser, TRole>(this IServiceCollection services,
+        IConfiguration configuration)
+        where TUser : IdentityUser<TUser, TRole>
+        where TRole : IdentityRole<TUser, TRole>
     {
-        public static void AddIdentityService<TUser, TRole>(this IServiceCollection services,
-            IConfiguration configuration)
-            where TUser : IdentityUser<TUser, TRole>
-            where TRole : IdentityRole<TUser, TRole>
+
+        var tokenOptions = configuration.GetSection("TokenOptions").Get<JwtHelper<TUser, TRole>.TokenOptions>();
+        var sessionOption = configuration.GetSection("SessionOption").Get<JwtHelper<TUser, TRole>.SessionOption>();
+
+        services.AddSession(options =>
         {
+            options.IdleTimeout = TimeSpan.FromMinutes(sessionOption.IdleTimeout);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+            options.Cookie.Name = sessionOption.CookieName;
+        });
 
-            var tokenOptions = configuration.GetSection("TokenOptions").Get<JwtHelper<TUser, TRole>.TokenOptions>();
-            var sessionOption = configuration.GetSection("SessionOption").Get<JwtHelper<TUser, TRole>.SessionOption>();
-
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(sessionOption.IdleTimeout);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-                options.Cookie.Name = sessionOption.CookieName;
-            });
-
-            services.AddAuthentication(x =>
+        services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -54,28 +54,25 @@ namespace Yella.Core.IdentityService.Extensions
                 };
             });
 
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                options.CheckConsentNeeded = _ => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-        }
-
-
-        public static void AddIdentityConfigure(this IApplicationBuilder app)
+        services.Configure<CookiePolicyOptions>(options =>
         {
-            app.UseCookiePolicy();
+            options.CheckConsentNeeded = _ => true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
 
-            app.UseSession();
-
-            app.UseIdentity();
-
-            app.UseAuthentication();
-
-            app.UseAuthorization();
-        }
     }
 
 
+    public static void AddIdentityConfigure(this IApplicationBuilder app)
+    {
+        app.UseCookiePolicy();
+
+        app.UseSession();
+
+        app.UseIdentity();
+
+        app.UseAuthentication();
+
+        app.UseAuthorization();
+    }
 }

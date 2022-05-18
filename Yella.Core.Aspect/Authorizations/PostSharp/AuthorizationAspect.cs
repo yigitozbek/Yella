@@ -6,34 +6,33 @@ using System;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text.Json;
-using Yella.Core.Domain.Results;
+using Yella.Core.Helper.Results;
 
-namespace Yella.Core.Aspect.Authorizations.PostSharp
+namespace Yella.Core.Aspect.Authorizations.PostSharp;
+
+[PSerializable]
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
+[ProvideAspectRole(StandardRoles.Security)]
+[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, StandardRoles.Tracing)]
+public class AuthorizationAspect : OnMethodBoundaryAspect
 {
-    [PSerializable]
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
-    [ProvideAspectRole(StandardRoles.Security)]
-    [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, StandardRoles.Tracing)]
-    public class AuthorizationAspect : OnMethodBoundaryAspect
+    public string? Permission = null;
+
+    public AuthorizationAspect(string? permission = null) => Permission = permission;
+
+    public override void OnEntry(MethodExecutionArgs args)
     {
-        public string? Permission = null;
+        HttpContext? httpContext = args.Instance as HttpContext;
 
-        public AuthorizationAspect(string? permission = null) => Permission = permission;
+        if (httpContext == null || httpContext.User.Identity is { IsAuthenticated: false })
+            throw new AuthenticationException();
 
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            HttpContext? httpContext = args.Instance as HttpContext;
+        var permissions = httpContext.User.Claims
+            .Where(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/permission")
+            .Select(x => x.Value).ToList();
 
-            if (httpContext == null || httpContext.User.Identity is { IsAuthenticated: false })
-                throw new AuthenticationException();
+        if (!string.IsNullOrEmpty(Permission) && permissions.Count(x => x == Permission) == 0)
+            throw new UnauthorizedAccessException(JsonSerializer.Serialize(new Result(false, "You are not authorized")));
 
-            var permissions = httpContext.User.Claims
-                .Where(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/permission")
-                .Select(x => x.Value).ToList();
-
-            if (!string.IsNullOrEmpty(Permission) && permissions.Count(x => x == Permission) == 0)
-                throw new UnauthorizedAccessException(JsonSerializer.Serialize(new Result(false, "You are not authorized")));
-
-        }
     }
 }

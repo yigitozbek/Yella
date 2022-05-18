@@ -1,7 +1,6 @@
-﻿namespace Yella.Core.Domain.Dto
+﻿namespace Yella.Core.Domain.Dto;
+
+public interface IEntityDto<out TKey> : IEntityDto
 {
-    public interface IEntityDto<out TKey> : IEntityDto
-    {
-        TKey Id { get; }
-    }
+    TKey Id { get; }
 }

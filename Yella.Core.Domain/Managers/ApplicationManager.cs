@@ -1,7 +1,6 @@
-﻿namespace Yella.Core.Domain.Managers
-{
-    public class ApplicationManager : IApplicationManager
-    {
+﻿namespace Yella.Core.Domain.Managers;
 
-    }
+public class ApplicationManager : IApplicationManager
+{
+
 }

@@ -1,20 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Yella.Core.Domain.Dto
+namespace Yella.Core.Domain.Dto;
+
+public abstract class EntityDto : IEntityDto
 {
-    public abstract class EntityDto : IEntityDto
-    {
-        protected EntityDto() { }
+    protected EntityDto() { }
 
-    }
+}
 
-    public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
-        where TKey : struct
-    {
-        protected EntityDto() { }
-        protected EntityDto(TKey id) { }
+public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
+    where TKey : struct
+{
+    protected EntityDto() { }
+    protected EntityDto(TKey id) { }
 
-        [Key] public TKey Id { get; set; }
+    [Key] public TKey Id { get; set; }
 
-    }
 }

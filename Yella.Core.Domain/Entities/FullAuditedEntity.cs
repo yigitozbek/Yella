@@ -1,14 +1,13 @@
-﻿namespace Yella.Core.Domain.Entities
-{
-    public abstract class FullAuditedEntity : AuditedEntity, IFullAuditedEntity
-    {
-        protected FullAuditedEntity() : base()
-        {
-            IsDeleted = false;
-        }
+﻿namespace Yella.Core.Domain.Entities;
 
-        public virtual bool IsDeleted { get; protected set; }
-        public virtual Guid? DeleterId { get; protected set; }
-        public virtual DateTime? DeletionTime { get; protected set; }
+public sealed class FullAuditedEntity : AuditedEntity, IFullAuditedEntity
+{
+    private FullAuditedEntity() : base()
+    {
+        IsDeleted = false;
     }
+
+    public bool IsDeleted { get; protected set; }
+    public Guid? DeleterId { get; protected set; }
+    public DateTime? DeletionTime { get; protected set; }
 }
