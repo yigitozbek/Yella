@@ -13,7 +13,7 @@ public interface IRepository<TEntity>
 {
     Task<IDataResult<TEntity>> AddAsync(TEntity entity);
     Task<IResult> AddRangeAsync(IEnumerable<TEntity> entities);
-    Task<IResult> UpdateAsync(TEntity entity);
+    Task<IDataResult<TEntity>> UpdateAsync(TEntity entity);
     Task<IResult> DeleteAsync(TEntity entity);
     Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression);
     Task<IEnumerable<TEntity>> GetListAsync() { return GetListAsync(null); }

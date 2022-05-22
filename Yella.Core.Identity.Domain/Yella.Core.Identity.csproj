@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<IsPublishable>True</IsPublishable>
 		<Nullable>enable</Nullable>
+		<IsPublishable>True</IsPublishable>
 		<Company>Yigit Ozbek</Company>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
