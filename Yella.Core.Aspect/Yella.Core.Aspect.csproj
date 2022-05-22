@@ -5,7 +5,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<IsPublishable>True</IsPublishable>
-		<Version>1.0.2</Version>
 		<PackageTags>Aspect</PackageTags>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Company>Yigit Ozbek</Company>

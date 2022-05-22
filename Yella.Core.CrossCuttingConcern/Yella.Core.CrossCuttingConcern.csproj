@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Version>1.0.2</Version>
 		<IsPublishable>True</IsPublishable>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
