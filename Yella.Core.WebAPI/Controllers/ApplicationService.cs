@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Yella.Core.WebAPI.Controllers;
 
+
 [ApiController]
-[Route("/api/[controller]")]
+[Route("api/[controller]/[action]")]
 public class ApplicationService : ControllerBase, IApplicationService
 {
 

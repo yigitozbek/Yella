@@ -22,7 +22,7 @@
 		<ProjectReference Include="..\Yella.Core.Aspect\Yella.Core.Aspect.csproj" />
 		<ProjectReference Include="..\Yella.Core.Domain.Dto\Yella.Core.Domain.Dto.csproj" />
 		<ProjectReference Include="..\Yella.Core.EntityFrameworkCore\Yella.Core.EntityFrameworkCore.csproj" />
-		<ProjectReference Include="..\Yella.Core.Identity.Domain\Yella.Core.Identity.Domain.csproj" />
+		<ProjectReference Include="..\Yella.Core.Identity.Domain\Yella.Core.Identity.csproj" />
 	</ItemGroup>
 
 </Project>

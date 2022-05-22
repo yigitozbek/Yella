@@ -2,14 +2,50 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Yella.Core.Domain.Entities;
 
-namespace Yella.Core.Identity.Domain.Entities;
+namespace Yella.Core.Identity.Entities;
 
 public class IdentityUser<TUser, TRole> : FullAuditedEntity<Guid>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {
+    public IdentityUser(Guid id, string userName, string email, byte[] passwordSalt, byte[] passwordHash, string name, string surname, byte[] image, DateTime? lastLogin, DateTime? joined, short incorrectPasswordAttempts, bool isBlocked, DateTime? blockedDate, Guid? blockedUserId, TUser blockedUser, ICollection<UserRole<TUser, TRole>> userRoles) : base(id)
+    {
+        UserName = userName;
+        Email = email;
+        PasswordSalt = passwordSalt;
+        PasswordHash = passwordHash;
+        Name = name;
+        Surname = surname;
+        Image = image;
+        LastLogin = lastLogin;
+        Joined = joined;
+        IncorrectPasswordAttempts = incorrectPasswordAttempts;
+        IsBlocked = isBlocked;
+        BlockedDate = blockedDate;
+        BlockedUserId = blockedUserId;
+        BlockedUser = blockedUser;
+        UserRoles = userRoles;
+    }
 
-    [Required, MinLength(5), MaxLength(15)]
+    public IdentityUser(string userName, string email, byte[] passwordSalt, byte[] passwordHash, string name, string surname, byte[] image, DateTime? lastLogin, DateTime? joined, short incorrectPasswordAttempts, bool isBlocked, DateTime? blockedDate, Guid? blockedUserId, TUser blockedUser, ICollection<UserRole<TUser, TRole>> userRoles)
+    {
+        UserName = userName;
+        Email = email;
+        PasswordSalt = passwordSalt;
+        PasswordHash = passwordHash;
+        Name = name;
+        Surname = surname;
+        Image = image;
+        LastLogin = lastLogin;
+        Joined = joined;
+        IncorrectPasswordAttempts = incorrectPasswordAttempts;
+        IsBlocked = isBlocked;
+        BlockedDate = blockedDate;
+        BlockedUserId = blockedUserId;
+        BlockedUser = blockedUser;
+        UserRoles = userRoles;
+    }
+
     public string UserName { get; set; }
 
     [Required, MinLength(5)]

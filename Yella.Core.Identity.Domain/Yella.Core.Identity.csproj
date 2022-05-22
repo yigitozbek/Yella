@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -12,14 +12,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation.AspNetCore" Version="11.0.1" />
-		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.0.1" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Yella.Core.Aspect\Yella.Core.Aspect.csproj" />
 		<ProjectReference Include="..\Yella.Core.Context\Yella.Core.Context.csproj" />
 		<ProjectReference Include="..\Yella.Core.Domain.Dto\Yella.Core.Domain.Dto.csproj" />
 		<ProjectReference Include="..\Yella.Core.Domain\Yella.Core.Domain.csproj" />
+		<ProjectReference Include="..\Yella.Core.EntityFrameworkCore\Yella.Core.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Mappers\AutoMapper\" />
 	</ItemGroup>
 
 </Project>

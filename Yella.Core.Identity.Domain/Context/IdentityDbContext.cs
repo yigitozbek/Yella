@@ -1,24 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Yella.Core.Context;
-using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.Identity.Entities;
 
-namespace Yella.Core.Identity.Domain.Context;
+namespace Yella.Core.Identity.Context;
 
-public class IdentityDbContext<TUser, TRole> : CoreDbContext<IdentityDbContext<TUser, TRole>>
+public interface IIdentityDbContext<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>, new()
     where TRole : IdentityRole<TUser, TRole>, new()
 
 {
-    public IdentityDbContext(DbContextOptions<IdentityDbContext<TUser, TRole>> options, IHttpContextAccessor httpContextAccessor) : base(options, httpContextAccessor) { }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(IdentityDbContext<TUser, TRole>).Assembly);
-        GetEntityWithoutDeleted(modelBuilder);
-        base.OnModelCreating(modelBuilder);
-    }
-
     public DbSet<TUser> Users { get; set; }
     public DbSet<TRole> Roles { get; set; }
     public DbSet<UserRole<TUser, TRole>> UserRoles { get; set; }

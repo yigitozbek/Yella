@@ -1,11 +1,15 @@
 ﻿using Yella.Core.Domain.Dto;
 
-namespace Yella.Core.Identity.Domain.Dtos;
+namespace Yella.Core.Identity.Dtos;
 
 public class PermissionDto : EntityDto<short>
 {
-    public PermissionDto()
+    public PermissionDto(string name, string description, string code, string tag)
     {
+        Name = name;
+        Description = description;
+        Code = code;
+        Tag = tag;
         IsChecked = false;
     }
 

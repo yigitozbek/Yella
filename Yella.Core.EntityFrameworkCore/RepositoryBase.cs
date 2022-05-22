@@ -33,17 +33,17 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         return new SuccessResult(Messages.Removed);
     }
 
-    public async Task<IResult> UpdateAsync(TEntity entity)
+    public async Task<IDataResult<TEntity>> UpdateAsync(TEntity entity)
     {
         _context.Entry(entity).State = EntityState.Modified;
         await _context.SaveChangesAsync();
-        return new SuccessResult(Messages.Updated);
+        return new SuccessDataResult<TEntity>(entity, Messages.Updated);
     }
 
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
         => await Queryable(expression).FirstAsync();
 
-    public async Task<int> CountAsync(Expression<Func<TEntity, bool>> expression ) 
+    public async Task<int> CountAsync(Expression<Func<TEntity, bool>> expression)
         => await Queryable(expression).CountAsync();
 
     protected IQueryable<TEntity> Queryable() =>

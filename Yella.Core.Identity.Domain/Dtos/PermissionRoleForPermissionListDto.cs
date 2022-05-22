@@ -1,10 +1,15 @@
-﻿namespace Yella.Core.Identity.Domain.Dtos;
+﻿using Yella.Core.Domain.Dto;
 
-public class PermissionRoleForPermissionListDto
+namespace Yella.Core.Identity.Dtos;
+
+public class PermissionRoleForPermissionListDto : EntityDto
 {
+    public PermissionRoleForPermissionListDto(string roleName, string permissionName)
+    {
+        RoleName = roleName;
+        PermissionName = permissionName;
+    }
+
     public string RoleName { get; set; }
     public string PermissionName { get; set; }
-
-
-
 }

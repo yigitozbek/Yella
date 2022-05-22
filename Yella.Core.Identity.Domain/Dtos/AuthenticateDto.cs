@@ -1,7 +1,7 @@
 ﻿using Yella.Core.Domain.Dto;
-using Yella.Core.Identity.Domain.Entities;
+using Yella.Core.Identity.Entities;
 
-namespace Yella.Core.Identity.Domain.Dtos;
+namespace Yella.Core.Identity.Dtos;
 
 public class AuthenticateDto<TUser, TRole> : EntityDto<Guid>
     where TUser : IdentityUser<TUser, TRole>

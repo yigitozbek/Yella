@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Yella.Core.Helper.Results;
-using Newtonsoft.Json;
 using ValidationException = FluentValidation.ValidationException;
 
 namespace Yella.Core.CrossCuttingConcern.Validations.FluentValidation;

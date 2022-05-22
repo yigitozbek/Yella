@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Identity.Domain.Constants;
+﻿namespace Yella.Core.Identity.Constants;
 
 public static class Messages
 {
