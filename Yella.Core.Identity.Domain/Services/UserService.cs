@@ -28,7 +28,7 @@ public class UserService<TUser, TRole> : IUserService<TUser, TRole>
 
     public async Task<List<TUser>> GetListWithRoleAsync()
     {
-        var query = await _userRepository.WithDetailsAsync(x => x.UserRoles, x => ((UserRole<TUser, TRole>)x.UserRoles).Role);
+        var query = await _userRepository.WithIncludeAsync(x => x.UserRoles, x => ((UserRole<TUser, TRole>)x.UserRoles).Role);
         return query.ToList();
     }
 
@@ -51,7 +51,7 @@ public class UserService<TUser, TRole> : IUserService<TUser, TRole>
     public async Task<TUser> GetByUsernameAsync(string username, params Expression<Func<TUser, object>>[] includes)
     {
         var query = includes is { Length: > 0 }
-            ? (await _userRepository.WithDetailsAsync(includes)).First(x => x.UserName == username)
+            ? (await _userRepository.WithIncludeAsync(includes)).First(x => x.UserName == username)
             : await _userRepository.FirstOrDefaultAsync(x => x.UserName == username);
         return query;
     }
