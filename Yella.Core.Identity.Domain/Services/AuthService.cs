@@ -61,7 +61,9 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         var isUserExit = await _userRepository.FirstOrDefaultAsync(x => x.UserName == registerDto.UserName || x.Email == registerDto.Email);
 
         if (isUserExit != null)
+        {
             return new ErrorDataResult<TUser>("there is a user with a username or email");
+        }
 
         _passwordHasher.CreatePasswordHash(registerDto.Password, out var passwordHash, out var passwordSalt);
 
@@ -289,51 +291,4 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         return new SuccessDataResult<TUser>(result.Data, result.Message);
     }
 
-    /// <summary>
-    /// This method is used to add Role to User.
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(UserRoleAddDto input)
-    {
-
-        if (input == null) throw new ArgumentNullException(nameof(input));
-
-        var userRoleRoleIds = (await _userRoleRepository.GetListAsync(x => x.UserId == input.UserId)).Select(x => x.RoleId);
-
-        var roles = input.RoleIds.Where(x => !userRoleRoleIds.Contains(x)).ToList();
-
-        var userRoles = roles.Select(roleId => new UserRole<TUser, TRole>(input.UserId, roleId)).ToList();
-
-        var result = await _userRoleRepository.AddRangeAsync(userRoles);
-
-        if (!result.Success)
-        {
-            return new ErrorDataResult<UserRole<TUser, TRole>>(result.Message);
-        }
-
-        return new SuccessDataResult<UserRole<TUser, TRole>>(result.Message);
-    }
-
-    /// <summary>
-    /// This method is used to remove Role to User.
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IResult> RemoveUserRoleAsync(UserRoleRemoveDto input)
-    {
-
-        if (input == null) throw new ArgumentNullException(nameof(input));
-
-        var queries = await _userRoleRepository.GetListAsync(x => input.UserId == x.UserId && input.RoleIds.Contains(x.RoleId));
-
-        foreach (var query in queries)
-        {
-            await _userRoleRepository.DeleteAsync(query.Id);
-        }
-
-        return new SuccessResult(Messages.Removed);
-    }
 }

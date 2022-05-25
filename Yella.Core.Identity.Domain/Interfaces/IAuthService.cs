@@ -42,7 +42,6 @@ public interface IAuthService<TUser, TRole>
     /// <exception cref="ArgumentNullException"></exception>
     Task<IResult> ChangePasswordAsync(ResetPasswordDto resetPasswordDto);
 
-
     /// <summary>
     /// This method is used to block the user. User cannot login again.
     /// </summary>
@@ -50,23 +49,6 @@ public interface IAuthService<TUser, TRole>
     /// <param name="blockedUser"></param>
     /// <returns></returns>
     Task<IDataResult<TUser>> BlockAccountAsync(Guid id, Guid blockedUser);
-
-
-    /// <summary>
-    /// This method is used to add Role to User.
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(UserRoleAddDto input);
-
-    /// <summary>
-    /// This method is used to remove Role to User.
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    Task<IResult> RemoveUserRoleAsync(UserRoleRemoveDto input);
 
     /// <summary>
     /// This method is used to activate the blocked user.

@@ -29,7 +29,7 @@ public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
 
     public async Task<List<PermissionRoleForPermissionListDto>> GetListPermissionRoleForPermissionListAsync()
     {
-        var query = (await _permissionRoleRepository.WithDetailsAsync(x => x.Permission, x => x.Role))
+        var query = (await _permissionRoleRepository.WithIncludeAsync(x => x.Permission, x => x.Role))
             .Select(x => new PermissionRoleForPermissionListDto(permissionName: x.Permission.Tag, roleName: x.Role.Name)).ToList();
 
         var c = query
@@ -44,7 +44,7 @@ public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
 
     public async Task<List<Permission<TUser, TRole>>> GetListByUserIdAsync(Guid userId)
     {
-        var result = (await _permissionRepository.WithDetailsAsync(x => x.PermissionRoles,
+        var result = (await _permissionRepository.WithIncludeAsync(x => x.PermissionRoles,
                 x => ((PermissionRole<TUser, TRole>)x.PermissionRoles).Role,
                 x => ((PermissionRole<TUser, TRole>)x.PermissionRoles).Role.UserRoles))
             .Where(x => x.PermissionRoles.Any(pRole => pRole.Role.UserRoles.Any(uRole => uRole.UserId == userId))).ToList();
@@ -54,7 +54,7 @@ public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
 
     public async Task<List<Permission<TUser, TRole>>> GetListByRoleIdAsync(Guid roleId)
     {
-        var result = (await _permissionRepository.WithDetailsAsync(x => x.PermissionRoles,
+        var result = (await _permissionRepository.WithIncludeAsync(x => x.PermissionRoles,
                 x => ((PermissionRole<TUser, TRole>)x.PermissionRoles).Role,
                 x => ((PermissionRole<TUser, TRole>)x.PermissionRoles).Role.UserRoles))
             .Where(x => x.PermissionRoles.Any(x => x.RoleId == roleId)).ToList();
