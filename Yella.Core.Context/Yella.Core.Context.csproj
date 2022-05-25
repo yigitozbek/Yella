@@ -21,4 +21,8 @@
 		<ProjectReference Include="..\Yella.Core.Domain\Yella.Core.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="IoC\DependencyResolvers\" />
+	</ItemGroup>
+
 </Project>

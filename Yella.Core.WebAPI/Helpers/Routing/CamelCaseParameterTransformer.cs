@@ -19,7 +19,7 @@ namespace Yella.Core.WebAPI.Helpers.Routing
     /// });
     /// 
     /// </summary>
-public class CamelCaseParameterTransformer : IOutboundParameterTransformer
+    public class CamelCaseParameterTransformer : IOutboundParameterTransformer
     {
         public string? TransformOutbound(object? value)
         {

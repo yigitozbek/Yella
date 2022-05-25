@@ -30,42 +30,97 @@ public class CoreDbContext<TContext> : DbContext, IApplicationDbContext
                 case EntityState.Added: CreatedEntity(entry); break;
             }
         }
+
         return base.SaveChangesAsync(cancellationToken);
     }
 
     protected void GetEntityWithoutDeleted(ModelBuilder modelBuilder)
     {
+
         foreach (var type in modelBuilder.Model.GetEntityTypes())
-            if (typeof(IFullAuditedEntity).IsAssignableFrom(type.ClrType)) modelBuilder.SetSoftDeleteFilter(type.ClrType);
+        {
+            if (typeof(IFullAuditedEntity).IsAssignableFrom(type.ClrType))
+            {
+                modelBuilder.SetSoftDeleteFilter(type.ClrType);
+            }
+
+        }
+
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="entry"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="InvalidOperationException"></exception>
     protected void CreatedEntity(EntityEntry entry)
     {
-        if (entry.Entity is not IFullAuditedEntity && entry.Entity is not ICreationAuditedEntity) return;
+
+        if (entry == null) throw new ArgumentNullException(nameof(entry));
+
+        if (entry.Entity is not IFullAuditedEntity && entry.Entity is not ICreationAuditedEntity)
+        {
+            return;
+        }
 
         entry.CurrentValues["CreationTime"] = DateTime.Now;
+
         if (_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier) != null)
+        {
             entry.CurrentValues["CreatorId"] = new Guid(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new InvalidOperationException());
+        }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="entry"></param>
+    /// <exception cref="InvalidOperationException"></exception>
     protected void ModifiedEntity(EntityEntry entry)
     {
-        if (entry.Entity is not IFullAuditedEntity && entry.Entity is not IAuditedEntity) return;
+        if (entry == null) throw new ArgumentNullException(nameof(entry));
+
+        if (entry.Entity is not IFullAuditedEntity && entry.Entity is not IAuditedEntity)
+        {
+            return;
+        }
 
         entry.CurrentValues["LastModificationTime"] = DateTime.Now;
+
         if (_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier) != null)
+        {
             entry.CurrentValues["LastModifierId"] = new Guid(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new InvalidOperationException());
+        }
+
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="entry"></param>
+    /// <exception cref="InvalidOperationException"></exception>
     protected void DeleteEntity(EntityEntry entry)
     {
-        if (entry.Entity is not IFullAuditedEntity) return;
+        if (entry == null) throw new ArgumentNullException(nameof(entry));
+
+        if (entry.Entity is not IFullAuditedEntity)
+        {
+            return;
+        }
 
         entry.State = EntityState.Modified;
+
         entry.CurrentValues["IsDeleted"] = true;
+
         entry.CurrentValues["DeletionTime"] = DateTime.Now;
+
         if (_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier) != null)
+        {
             entry.CurrentValues["DeleterId"] = new Guid(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new InvalidOperationException());
+        }
+
     }
+
 
 }

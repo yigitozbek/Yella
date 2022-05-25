@@ -26,6 +26,7 @@
 	<ItemGroup>
 		<Folder Include="Authorizations\Microsoft\" />
 		<Folder Include="Authorizations\PostSharp\" />
+		<Folder Include="Caches\PostSharp\" />
 		<Folder Include="Properties\" />
 	</ItemGroup>
 

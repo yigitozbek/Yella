@@ -173,11 +173,6 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
             return new ErrorResult(Messages.ThisPasswordIsWrong);
         }
 
-        if (resetPasswordDto.NewPassword != resetPasswordDto.ConfirmPassword)
-        {
-            return new ErrorResult("The password and its confirm are not the same");
-        }
-
         _passwordHasher.CreatePasswordHash(resetPasswordDto.NewPassword, out var passwordHash, out var passwordSalt);
 
         user.PasswordHash = passwordHash;
@@ -249,7 +244,9 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     public async Task<IDataResult<TUser>> BlockAccountAsync(Guid id, Guid blockedUser)
     {
         if (blockedUser == id)
+        {
             return new ErrorDataResult<TUser>("You cannot block your own account.");
+        }
 
         var query = await _userRepository.GetAsync(id);
 

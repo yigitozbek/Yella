@@ -12,16 +12,18 @@ namespace Yella.Core.Aspect.Validations.Postsharp;
 [PSerializable]
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
 [ProvideAspectRole(StandardRoles.Validation)]
-[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, StandardRoles.Tracing)]
+[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, StandardRoles.Validation)]
 public class FluentValidationAspect : OnMethodBoundaryAspect
 {
 
     public Type Validator;
-    
+
     public FluentValidationAspect(Type validator) => Validator = validator;
 
     public override void OnEntry(MethodExecutionArgs args)
     {
+        if (args == null) throw new ArgumentNullException(nameof(args));
+
         var validatorBaseType = Validator.BaseType ?? throw new ArgumentNullException(nameof(Validator.BaseType));
 
         var entityType = validatorBaseType.GetGenericArguments()[0];
@@ -30,7 +32,10 @@ public class FluentValidationAspect : OnMethodBoundaryAspect
 
         var result = FluentValidator.Validate(entity, Validator);
 
-        throw new ValidationException(result.Data.ToJson());
+        if (result.Success)
+        {
+            throw new ValidationException(result.Data.ToJson());
+        }
 
     }
 }

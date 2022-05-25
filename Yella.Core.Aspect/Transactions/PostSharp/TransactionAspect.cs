@@ -1,10 +1,14 @@
 ﻿using System.Transactions;
 using PostSharp.Aspects;
+using PostSharp.Aspects.Dependencies;
 using PostSharp.Serialization;
 
 namespace Yella.Core.Aspect.Transactions.PostSharp;
 
 [PSerializable]
+[AttributeUsage(AttributeTargets.Method)]
+[ProvideAspectRole(StandardRoles.TransactionHandling)]
+[AspectRoleDependency(AspectDependencyAction.Require, AspectDependencyPosition.Before, StandardRoles.TransactionHandling)]
 public class TransactionAspect : OnMethodBoundaryAspect
 {
     public override void OnEntry(MethodExecutionArgs args)
