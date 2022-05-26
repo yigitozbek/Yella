@@ -6,6 +6,7 @@ public abstract class EntityDto : IEntityDto
 {
     protected EntityDto() { }
 
+
 }
 
 public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>

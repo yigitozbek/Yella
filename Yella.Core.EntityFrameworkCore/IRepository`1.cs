@@ -23,7 +23,6 @@ public interface IRepository<TEntity, in TKey> : IRepositoryBase<TEntity>
     /// <returns></returns>
     Task<TEntity> GetAsync(TKey id);
 
-
     /// <summary>
     /// This method is used for getting entity. Returns a single data as a return value.
     /// </summary>

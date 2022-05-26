@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Yella.Core.Aspect.Transactions.PostSharp;
-using Yella.Core.Aspect.Validations.Postsharp;
+using Yella.Core.Aspect.Validations.PostSharp;
 using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Helper.Results;
 using Yella.Core.Identity.Constants;

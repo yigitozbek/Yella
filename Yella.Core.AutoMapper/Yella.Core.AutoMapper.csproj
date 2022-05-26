@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Yella.Core.Domain.Dto\Yella.Core.Domain.Dto.csproj" />
     <ProjectReference Include="..\Yella.Core.Extension\Yella.Core.Extension.csproj" />
   </ItemGroup>
 

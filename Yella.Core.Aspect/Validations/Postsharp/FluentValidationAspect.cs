@@ -6,7 +6,7 @@ using Yella.Core.CrossCuttingConcern.Validations.FluentValidation;
 using Yella.Core.Helper;
 using Yella.Core.Helper.Extensions;
 
-namespace Yella.Core.Aspect.Validations.Postsharp;
+namespace Yella.Core.Aspect.Validations.PostSharp;
 
 
 [PSerializable]
