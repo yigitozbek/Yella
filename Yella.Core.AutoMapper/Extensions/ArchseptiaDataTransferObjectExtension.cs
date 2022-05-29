@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yella.Core.Domain.Dto.Extensions;
+namespace Yella.Core.AutoMapper.Extensions;
 
 public static class ArchseptiaDataTransferObjectExtension
 {

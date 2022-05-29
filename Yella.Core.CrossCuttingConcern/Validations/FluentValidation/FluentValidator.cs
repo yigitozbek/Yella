@@ -3,17 +3,23 @@ using Yella.Core.Helper.Results;
 
 namespace Yella.Core.CrossCuttingConcern.Validations.FluentValidation;
 
+/// <summary>
+/// this class uses the Fluent Validation library.
+/// </summary>
 public static class FluentValidator
 {
-
     /// <summary>
-    /// 
+    /// This method uses for entity validation. It takes an entity and a Fluent Validation object inside
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="validatorType"></param>
     /// <returns></returns>
     public static IDataResult<List<ValidationError>> Validate(object obj, Type validatorType)
     {
+        if (obj == null) throw new ArgumentNullException(nameof(obj));
+
+        if (validatorType == null) throw new ArgumentNullException(nameof(validatorType));
+
         var validator = (IValidator)Activator.CreateInstance(validatorType)!;
 
         var context = new ValidationContext<object>(obj);
@@ -30,6 +36,5 @@ public static class FluentValidator
         }
 
         return new ErrorDataResult<List<ValidationError>>(list);
-
     }
 }

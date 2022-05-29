@@ -2,23 +2,16 @@
 
 public class Result : IResult
 {
-    public Result(bool success,  string? message, int? statusCode) : this(success, statusCode)
+    public Result(bool success,  string? message) : this(success)
     {
         Message = message;
     }
 
-    public Result(bool success, int? statusCode)
+    public Result(bool success)
     {
         Success = success;
-        StatusCode = statusCode;
-    }
-    public Result(bool success, string? message)
-    {
-        Success = success;
-        Message = message;
     }
 
-    public int? StatusCode { get; set; }
 
     public bool Success { get; }
 

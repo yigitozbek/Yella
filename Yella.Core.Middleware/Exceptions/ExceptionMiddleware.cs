@@ -36,11 +36,7 @@ namespace Yella.Core.Middleware.Exceptions
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             var now = DateTime.UtcNow;
-            return httpContext.Response.WriteAsync(new ErrorResult()
-            {
-                StatusCode = httpContext.Response.StatusCode,
-                Message = ex.Message
-            }.ToString());
+            return httpContext.Response.WriteAsync(new ErrorResult(ex.Message).ToString());
         }
 
     }
