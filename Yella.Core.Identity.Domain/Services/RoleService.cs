@@ -72,6 +72,46 @@ public class RoleService<TUser, TRole> : IRoleService<TUser, TRole>
         return query;
     }
 
+    /// <summary>
+    /// This method is used to add Role
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<IDataResult<TRole>> AddAsync(TRole input)
+    {
+        if (input == null) throw new ArgumentNullException(nameof(input));
+
+        var result = await _roleRepository.AddAsync(input);
+
+        if (!result.Success)
+        {
+            return new ErrorDataResult<TRole>(result.Data, result.Message);
+        }
+
+        return new SuccessDataResult<TRole>(result.Data, result.Message);
+    }
+
+    /// <summary>
+    /// This method is used to update Role
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<IDataResult<TRole>> UpdateAsync(TRole input)
+    {
+        if (input == null) throw new ArgumentNullException(nameof(input));
+
+        var result = await _roleRepository.UpdateAsync(input);
+
+        if (!result.Success)
+        {
+            return new ErrorDataResult<TRole>(result.Data, result.Message);
+        }
+
+        return new SuccessDataResult<TRole>(result.Data, result.Message);
+    }
+
 
     /// <summary>
     /// This method is used to add Role to User.

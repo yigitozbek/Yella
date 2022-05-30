@@ -70,22 +70,11 @@ public class JwtHelper<TUser, TRole> : ITokenHelper<TUser, TRole>
 
         if (claims is { Count: > 0 }) claims.AddRange(list);
 
-        if (user.Image != null)
-            claims.AddAvatar(new System.Text.ASCIIEncoding().GetString(user.Image));
-
         return claims;
     }
 
     public class TokenOptions
     {
-        public TokenOptions(string audience, string issuer, int accessTokenExpiration, string securityKey)
-        {
-            Audience = audience;
-            Issuer = issuer;
-            AccessTokenExpiration = accessTokenExpiration;
-            SecurityKey = securityKey;
-        }
-
         public string Audience { get; set; }
         public string Issuer { get; set; }
         public int AccessTokenExpiration { get; set; }
@@ -94,12 +83,6 @@ public class JwtHelper<TUser, TRole> : ITokenHelper<TUser, TRole>
 
     public class SessionOption
     {
-        public SessionOption(string cookieName, int idleTimeout)
-        {
-            CookieName = cookieName;
-            IdleTimeout = idleTimeout;
-        }
-
         public string CookieName { get; set; }
         public int IdleTimeout { get; set; }
 

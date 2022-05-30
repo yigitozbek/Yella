@@ -8,6 +8,8 @@
 		<Company>Yigit Ozbek</Company>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.3</Version>
+
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -28,6 +28,11 @@ public class UserLoginLog<TUser, TRole> : Entity<long>
         IsSuccessful = isSuccessful;
     }
 
+    public UserLoginLog()
+    {
+        
+    }
+
     public Guid UserId { get; set; }
 
     [ForeignKey(nameof(UserId))]

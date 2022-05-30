@@ -1,7 +1,5 @@
 ﻿using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
-using Yella.Core.Aspect.Transactions.PostSharp;
-using Yella.Core.Aspect.Validations.Postsharp;
 using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Helper.Results;
 using Yella.Core.Identity.Constants;
@@ -10,7 +8,6 @@ using Yella.Core.Identity.Entities;
 using Yella.Core.Identity.Helpers.Security.Hashing;
 using Yella.Core.Identity.Helpers.Security.JWT;
 using Yella.Core.Identity.Interfaces;
-using Yella.Core.Identity.Validations.FluentValidation;
 
 namespace Yella.Core.Identity.Services;
 
@@ -51,8 +48,6 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="registerDto"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    [TransactionAspect(AspectPriority = 1)]
-    [FluentValidationAspect(typeof(RegisterValidator), AspectPriority = 2)]
     public async Task<IDataResult<TUser>> RegisterAsync(RegisterDto registerDto)
     {
 
@@ -99,8 +94,6 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="claims"></param>
     /// <returns>Return value Token returns</returns>
     /// <exception cref="ArgumentNullException"></exception>
-    [TransactionAspect(AspectPriority = 1)]
-    [FluentValidationAspect(typeof(LoginValidator), AspectPriority = 2)]
     public async Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto, List<Claim>? claims = null)
     {
 
@@ -157,8 +150,6 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// </summary>
     /// <param name="resetPasswordDto"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    [TransactionAspect(AspectPriority = 1)]
-    [FluentValidationAspect(typeof(ResetPasswordValidator), AspectPriority = 2)]
     public async Task<IResult> ChangePasswordAsync(ResetPasswordDto resetPasswordDto)
     {
         if (resetPasswordDto == null) throw new ArgumentNullException(nameof(resetPasswordDto));

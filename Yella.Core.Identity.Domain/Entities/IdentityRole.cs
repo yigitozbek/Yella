@@ -7,19 +7,6 @@ public class IdentityRole<TUser, TRole> : FullAuditedEntity<Guid>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {
-    public IdentityRole(Guid id, string name, string description, string code) : base(id)
-    {
-        Name = name;
-        Description = description;
-        Code = code;
-    }
-
-    public IdentityRole(string name, string description, string code)
-    {
-        Name = name;
-        Description = description;
-        Code = code;
-    }
 
     public string Name { get; set; }
 

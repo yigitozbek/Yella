@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Helper.Results;
 using Yella.Core.Identity.Entities;
@@ -12,12 +11,10 @@ public class UserService<TUser, TRole> : IUserService<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {
     private readonly IRepository<TUser, Guid> _userRepository;
-    private readonly IMapper _mapper;
 
-    public UserService(IRepository<TUser, Guid> userRepository, IMapper mapper)
+    public UserService(IRepository<TUser, Guid> userRepository)
     {
         _userRepository = userRepository;
-        _mapper = mapper;
     }
 
     public async Task<List<TUser>> GetListAsync()

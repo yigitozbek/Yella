@@ -9,6 +9,7 @@
 		<Copyright>Yigit Ozbek</Copyright>
 		<Company>Yigit Ozbek</Company>
 		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.3.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -28,6 +29,7 @@
 		<Folder Include="Authorizations\PostSharp\" />
 		<Folder Include="Caches\PostSharp\" />
 		<Folder Include="Properties\" />
+		<Folder Include="Transactions\PostSharp\" />
 	</ItemGroup>
 
 </Project>

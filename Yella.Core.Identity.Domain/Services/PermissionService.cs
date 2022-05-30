@@ -1,5 +1,4 @@
-﻿using Yella.Core.Aspect.Transactions.PostSharp;
-using Yella.Core.EntityFrameworkCore;
+﻿using Yella.Core.EntityFrameworkCore;
 using Yella.Core.Helper.Results;
 using Yella.Core.Identity.Constants;
 using Yella.Core.Identity.Dtos;
@@ -78,7 +77,6 @@ public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
         return new SuccessResult(result.Message);
     }
 
-    [TransactionAspect]
     public async Task<IDataResult<Permission<TUser, TRole>>> UpdateRangeAsync(RolePermissionCreateOrUpdateDto input)
     {
         if (input == null) throw new ArgumentNullException(nameof(input));

@@ -1,18 +1,8 @@
-﻿using Yella.Core.Domain.Dto;
+﻿namespace Yella.Core.Identity.Dtos;
 
-namespace Yella.Core.Identity.Dtos;
-
-public class PermissionDto : EntityDto<short>
+public class PermissionDto 
 {
-    public PermissionDto(string name, string description, string code, string tag)
-    {
-        Name = name;
-        Description = description;
-        Code = code;
-        Tag = tag;
-        IsChecked = false;
-    }
-
+    public short Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public string Code { get; set; }

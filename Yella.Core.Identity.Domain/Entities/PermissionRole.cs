@@ -21,6 +21,14 @@ public class PermissionRole<TUser, TRole> : FullAuditedEntity<Guid>
         RoleId = roleId;
     }
 
+    public PermissionRole()
+    {
+
+    }
+
+
+
+
     [ForeignKey(nameof(PermissionId))]
     public virtual Permission<TUser, TRole> Permission { get; set; }
     public short PermissionId { get; set; }

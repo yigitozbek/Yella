@@ -1,7 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <IsPublishable>True</IsPublishable>
+	  <PackageTags>Aspect</PackageTags>
+	  <Copyright>Yigit Ozbek</Copyright>
+	  <Company>Yigit Ozbek</Company>
+	  <Authors>Yigit Ozbek</Authors>
+	  <Version>1.0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -14,6 +14,10 @@ public class UserRole<TUser, TRole> : FullAuditedEntity<Guid>
         RoleId = roleId;
     }
 
+    public UserRole()
+    {
+        
+    }
 
     [ForeignKey(nameof(UserId))]
     public virtual TUser? User { get; set; }

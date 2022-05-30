@@ -24,7 +24,6 @@ public interface IRoleService<TUser, TRole>
     /// <exception cref="ArgumentNullException"></exception>
     Task<IResult> RemoveUserRoleAsync(UserRoleRemoveDto input);
 
-
     /// <summary>
     /// This method fetches roles by user Id.
     /// </summary>
@@ -51,4 +50,21 @@ public interface IRoleService<TUser, TRole>
     /// <param name="id"></param>
     /// <returns></returns>
     Task<TRole> GetByIdAsync(Guid id);
+
+    /// <summary>
+    /// This method is used to add Role
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    Task<IDataResult<TRole>> AddAsync(TRole input);
+
+    /// <summary>
+    /// This method is used to update Role
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    Task<IDataResult<TRole>> UpdateAsync(TRole input);
+
 }

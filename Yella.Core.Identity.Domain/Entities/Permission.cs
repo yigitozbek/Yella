@@ -26,6 +26,10 @@ public class Permission<TUser, TRole> : Entity<short>
         PermissionRoles = permissionRoles;
     }
 
+    public Permission()
+    {
+        
+    }
     [Required, MaxLength(150)] public string Name { get; set; }
     [Required, MaxLength(150)] public string Code { get; set; }
     [Required, MaxLength(150)] public string Description { get; set; }

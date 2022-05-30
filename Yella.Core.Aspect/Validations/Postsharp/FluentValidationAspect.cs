@@ -11,7 +11,6 @@ namespace Yella.Core.Aspect.Validations.Postsharp;
 [PSerializable]
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
 [ProvideAspectRole(StandardRoles.Validation)]
-[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, StandardRoles.Validation)]
 public class FluentValidationAspect : OnMethodBoundaryAspect
 {
 
