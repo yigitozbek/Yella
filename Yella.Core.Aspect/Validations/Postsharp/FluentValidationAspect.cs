@@ -30,7 +30,7 @@ public class FluentValidationAspect : OnMethodBoundaryAspect
 
         var result = FluentValidator.Validate(entity, Validator);
 
-        if (result.Success)
+        if (!result.Success)
         {
             throw new ValidationException(result.Data.ToJson());
         }
