@@ -9,6 +9,7 @@
 		<Company>Yigit Ozbek</Company>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.1.1</Version>
 		<PackageTags>Dapper</PackageTags>
 	</PropertyGroup>
 
