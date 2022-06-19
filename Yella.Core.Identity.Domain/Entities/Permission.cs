@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.Identity.Entities;
+namespace Yella.Framework.Identity.Entities;
 
 public class Permission<TUser, TRole> : Entity<short>
     where TUser : IdentityUser<TUser, TRole>

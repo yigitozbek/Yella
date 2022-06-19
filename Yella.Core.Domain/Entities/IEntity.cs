@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Domain.Entities;
+﻿namespace Yella.Framework.Domain.Entities;
 
 public interface IEntity<out TKey> : IEntity
 {

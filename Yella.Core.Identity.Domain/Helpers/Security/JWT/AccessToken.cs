@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Identity.Helpers.Security.JWT;
+﻿namespace Yella.Framework.Identity.Helpers.Security.JWT;
 
 public class AccessToken
 {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Yella.Core.Domain.Dto;
+using Yella.Framework.Domain.Dto;
 
-namespace Yella.Core.Dapper;
+namespace Yella.Framework.Dapper;
 
 public interface IDapperRepository
 {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Yella.Core.Helper.Extensions;
+namespace Yella.Framework.Helper.Extensions;
 
 public static class Object
 {

@@ -4,11 +4,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Extensions;
-using Yella.Core.Identity.Helpers.Security.Encryption;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Extensions;
+using Yella.Framework.Identity.Helpers.Security.Encryption;
 
-namespace Yella.Core.Identity.Helpers.Security.JWT;
+namespace Yella.Framework.Identity.Helpers.Security.JWT;
 
 public class JwtHelper<TUser, TRole> : ITokenHelper<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>

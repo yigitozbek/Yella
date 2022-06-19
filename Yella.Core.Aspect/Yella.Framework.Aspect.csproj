@@ -20,10 +20,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Yella.Core.CrossCuttingConcern\Yella.Core.CrossCuttingConcern.csproj" />
-		<ProjectReference Include="..\Yella.Core.Domain\Yella.Core.Domain.csproj" />
-		<ProjectReference Include="..\Yella.Core.Extension\Yella.Core.Extension.csproj" />
-		<ProjectReference Include="..\Yella.Core.Helper\Yella.Core.Helper.csproj" />
+		<ProjectReference Include="..\Yella.Core.CrossCuttingConcern\Yella.Framework.CrossCuttingConcern.csproj" />
+		<ProjectReference Include="..\Yella.Core.Domain\Yella.Framework.Domain.csproj" />
+		<ProjectReference Include="..\Yella.Core.Extension\Yella.Framework.Extension.csproj" />
+		<ProjectReference Include="..\Yella.Core.Helper\Yella.Framework.Helper.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

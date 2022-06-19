@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Identity.Helpers.Security.Hashing;
+﻿namespace Yella.Framework.Identity.Helpers.Security.Hashing;
 
 public interface IPasswordHasher
 {

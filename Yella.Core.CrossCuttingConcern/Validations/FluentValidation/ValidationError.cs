@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Yella.Core.CrossCuttingConcern.Validations.FluentValidation;
+namespace Yella.Framework.CrossCuttingConcern.Validations.FluentValidation;
 
 public class ValidationError
 {

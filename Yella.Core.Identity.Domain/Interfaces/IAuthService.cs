@@ -1,10 +1,10 @@
 ﻿using System.Security.Claims;
-using Yella.Core.Helper.Results;
-using Yella.Core.Identity.Dtos;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Helpers.Security.JWT;
+using Yella.Framework.Helper.Results;
+using Yella.Framework.Identity.Dtos;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Helpers.Security.JWT;
 
-namespace Yella.Core.Identity.Interfaces;
+namespace Yella.Framework.Identity.Interfaces;
 
 public interface IAuthService<TUser, TRole> 
     where TUser : IdentityUser<TUser, TRole>

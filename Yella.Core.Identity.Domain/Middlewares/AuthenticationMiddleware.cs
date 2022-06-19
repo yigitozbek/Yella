@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Yella.Core.Identity.Middlewares;
+namespace Yella.Framework.Identity.Middlewares;
 
 public class AuthenticationMiddleware
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Yella.Core.Domain.Entities;
+namespace Yella.Framework.Domain.Entities;
 
 public abstract class Entity : IEntity
 {

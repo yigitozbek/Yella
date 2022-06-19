@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.Context.Extensions;
+namespace Yella.Framework.Context.Extensions;
 
 public static class FilterExtensions
 {

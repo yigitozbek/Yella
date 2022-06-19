@@ -1,11 +1,11 @@
 ﻿using Autofac;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Helpers.Security.Hashing;
-using Yella.Core.Identity.Helpers.Security.JWT;
-using Yella.Core.Identity.Interfaces;
-using Yella.Core.Identity.Services;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Helpers.Security.Hashing;
+using Yella.Framework.Identity.Helpers.Security.JWT;
+using Yella.Framework.Identity.Interfaces;
+using Yella.Framework.Identity.Services;
 
-namespace Yella.Core.Identity.IoC.DependencyResolvers;
+namespace Yella.Framework.Identity.IoC.DependencyResolvers;
 
 public class AutofacIdentityModule<TUser, TRole> : Module
     where TUser : IdentityUser<TUser, TRole>, new()

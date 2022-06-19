@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
-using Yella.Core.Domain.Entities;
-using Yella.Core.Helper.Results;
+using Yella.Framework.Domain.Entities;
+using Yella.Framework.Helper.Results;
 
-namespace Yella.Core.EntityFrameworkCore;
+namespace Yella.Framework.EntityFrameworkCore;
 
 public interface IRepositoryBase<TEntity>
     where TEntity : Entity

@@ -1,9 +1,9 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using Yella.Core.Domain.Dto;
+using Yella.Framework.Domain.Dto;
 
-namespace Yella.Core.Dapper;
+namespace Yella.Framework.Dapper;
 
 public class DapperRepository : IDapperRepository
 {

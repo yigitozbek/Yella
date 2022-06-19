@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Yella.Core.Identity.Helpers.Permissions;
+namespace Yella.Framework.Identity.Helpers.Permissions;
 
 public static class PermissionHelper
 {

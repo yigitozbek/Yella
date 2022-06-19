@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Yella.Core.Context.Extensions;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Context.Extensions;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.Context;
+namespace Yella.Framework.Context;
 
 public class CoreDbContext<TContext> : DbContext, IApplicationDbContext
     where TContext : DbContext

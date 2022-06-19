@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace Yella.Core.Identity.Middlewares;
+namespace Yella.Framework.Identity.Middlewares;
 
 public static class IdentityMiddleware
 {

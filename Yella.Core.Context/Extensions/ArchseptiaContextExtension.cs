@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yella.Core.Context.Extensions;
+namespace Yella.Framework.Context.Extensions;
 
 public static class ArchseptiaContextExtension
 {

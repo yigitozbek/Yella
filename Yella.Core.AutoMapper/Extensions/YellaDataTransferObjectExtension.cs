@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yella.Core.AutoMapper.Extensions;
+namespace Yella.Framework.AutoMapper.Extensions;
 
 public static class YellaDataTransferObjectExtension
 {

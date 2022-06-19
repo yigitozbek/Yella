@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Yella.Core.Helper.Results;
+using Yella.Framework.Helper.Results;
 
-namespace Yella.Core.CrossCuttingConcern.Validations.FluentValidation;
+namespace Yella.Framework.CrossCuttingConcern.Validations.FluentValidation;
 
 /// <summary>
 /// this class uses the Fluent Validation library.

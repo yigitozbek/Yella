@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Domain.Entities;
+﻿namespace Yella.Framework.Domain.Entities;
 
 public sealed class FullAuditedEntity : AuditedEntity, IFullAuditedEntity
 {

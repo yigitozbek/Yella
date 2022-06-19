@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Yella.Core.Identity.Helpers.Security.Claims;
+using Yella.Framework.Identity.Helpers.Security.Claims;
 
-namespace Yella.Core.Identity.Extensions;
+namespace Yella.Framework.Identity.Extensions;
 
 public static class ClaimExtension
 {

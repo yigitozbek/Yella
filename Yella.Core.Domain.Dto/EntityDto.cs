@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Yella.Core.Domain.Dto;
+namespace Yella.Framework.Domain.Dto;
 
 public abstract class EntityDto : IEntityDto
 {

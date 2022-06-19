@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
  
-namespace Yella.Core.Identity.Dtos;
+namespace Yella.Framework.Identity.Dtos;
 
 public class UserRoleRemoveDto  
 {

@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
-using Yella.Core.Helper.Results;
-using Yella.Core.Identity.Entities;
+using Yella.Framework.Helper.Results;
+using Yella.Framework.Identity.Entities;
 
-namespace Yella.Core.Identity.Interfaces;
+namespace Yella.Framework.Identity.Interfaces;
 
 public interface IUserService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>

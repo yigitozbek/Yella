@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
-using Yella.Core.EntityFrameworkCore;
-using Yella.Core.Helper.Results;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Interfaces;
+using Yella.Framework.EntityFrameworkCore;
+using Yella.Framework.Helper.Results;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Interfaces;
 
-namespace Yella.Core.Identity.Services;
+namespace Yella.Framework.Identity.Services;
 
 public class UserService<TUser, TRole> : IUserService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>

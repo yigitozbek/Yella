@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yella.Core.Extension
+namespace Yella.Framework.Extension
 {
     /// <summary>
     /// Add static service resolver to use when dependencies injection is not available

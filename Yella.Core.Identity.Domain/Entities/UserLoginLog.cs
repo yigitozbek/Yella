@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.Identity.Entities;
+namespace Yella.Framework.Identity.Entities;
 
 public class UserLoginLog<TUser, TRole> : Entity<long>
     where TUser : IdentityUser<TUser, TRole>

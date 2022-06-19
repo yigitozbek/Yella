@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Yella.Core.Context;
-using Yella.Core.Identity.Entities;
+using Yella.Framework.Context;
+using Yella.Framework.Identity.Entities;
 
-namespace Yella.Core.Identity.Context;
+namespace Yella.Framework.Identity.Context;
 
 public interface IIdentityDbContext<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>, new()

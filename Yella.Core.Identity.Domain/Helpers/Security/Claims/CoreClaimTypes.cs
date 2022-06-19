@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Identity.Helpers.Security.Claims;
+﻿namespace Yella.Framework.Identity.Helpers.Security.Claims;
 
 public static class CoreClaimTypes
 {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 
-namespace Yella.Core.Dapper.IoC.DependencyResolvers;
+namespace Yella.Framework.Dapper.IoC.DependencyResolvers;
 
 public class AutofacDapperModule : Module
 {

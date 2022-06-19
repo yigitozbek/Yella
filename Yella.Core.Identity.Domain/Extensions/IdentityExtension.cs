@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Helpers.Security.Encryption;
-using Yella.Core.Identity.Helpers.Security.JWT;
-using Yella.Core.Identity.Middlewares;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Helpers.Security.Encryption;
+using Yella.Framework.Identity.Helpers.Security.JWT;
+using Yella.Framework.Identity.Middlewares;
 
-namespace Yella.Core.Identity.Extensions;
+namespace Yella.Framework.Identity.Extensions;
 
 public static class IdentityExtension
 {

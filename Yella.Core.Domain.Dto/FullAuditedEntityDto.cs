@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Domain.Dto;
+﻿namespace Yella.Framework.Domain.Dto;
 
 public abstract class FullAuditedEntityDto : AuditedEntityDto, IFullAuditedEntityDto
 {

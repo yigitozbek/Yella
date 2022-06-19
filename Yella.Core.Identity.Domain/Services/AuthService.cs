@@ -1,15 +1,15 @@
 ﻿using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
-using Yella.Core.EntityFrameworkCore;
-using Yella.Core.Helper.Results;
-using Yella.Core.Identity.Constants;
-using Yella.Core.Identity.Dtos;
-using Yella.Core.Identity.Entities;
-using Yella.Core.Identity.Helpers.Security.Hashing;
-using Yella.Core.Identity.Helpers.Security.JWT;
-using Yella.Core.Identity.Interfaces;
+using Yella.Framework.EntityFrameworkCore;
+using Yella.Framework.Helper.Results;
+using Yella.Framework.Identity.Constants;
+using Yella.Framework.Identity.Dtos;
+using Yella.Framework.Identity.Entities;
+using Yella.Framework.Identity.Helpers.Security.Hashing;
+using Yella.Framework.Identity.Helpers.Security.JWT;
+using Yella.Framework.Identity.Interfaces;
 
-namespace Yella.Core.Identity.Services;
+namespace Yella.Framework.Identity.Services;
 
 public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>, new()

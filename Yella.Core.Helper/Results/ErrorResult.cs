@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Helper.Results;
+﻿namespace Yella.Framework.Helper.Results;
 
 public class ErrorResult : Result, IResult
 {

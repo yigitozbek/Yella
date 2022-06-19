@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace Yella.Core.Identity.Helpers.Security.Encryption;
+namespace Yella.Framework.Identity.Helpers.Security.Encryption;
 
 public class SigningCredentialsHelper
 {

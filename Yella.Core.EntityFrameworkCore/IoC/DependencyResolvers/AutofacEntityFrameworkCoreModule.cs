@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yella.Core.EntityFrameworkCore.IoC.DependencyResolvers;
+namespace Yella.Framework.EntityFrameworkCore.IoC.DependencyResolvers;
 
 public class AutofacEntityFrameworkCoreModule : Module
 {

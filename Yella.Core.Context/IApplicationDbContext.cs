@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Yella.Core.Context;
+namespace Yella.Framework.Context;
 
 public interface IApplicationDbContext
 {

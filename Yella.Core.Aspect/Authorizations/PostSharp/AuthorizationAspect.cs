@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Http;
 using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
 using PostSharp.Serialization;
-using Yella.Core.Extension;
-using Yella.Core.Helper.Results;
+using Yella.Framework.Extension;
+using Yella.Framework.Helper.Results;
 
-namespace Yella.Core.Aspect.Authorizations.PostSharp;
+namespace Yella.Framework.Aspect.Authorizations.PostSharp;
 
 [PSerializable]
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Class)]

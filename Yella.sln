@@ -3,33 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Aspect", "Yella.Core.Aspect\Yella.Core.Aspect.csproj", "{6DAAD826-C12E-4F80-9F15-BE728BF3C7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Aspect", "Yella.Core.Aspect\Yella.Framework.Aspect.csproj", "{6DAAD826-C12E-4F80-9F15-BE728BF3C7E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Context", "Yella.Core.Context\Yella.Core.Context.csproj", "{824DE5DD-98F6-4D9F-BA3C-E73C4D361EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Context", "Yella.Core.Context\Yella.Framework.Context.csproj", "{824DE5DD-98F6-4D9F-BA3C-E73C4D361EB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.CrossCuttingConcern", "Yella.Core.CrossCuttingConcern\Yella.Core.CrossCuttingConcern.csproj", "{29747A82-4E82-4CDF-8FB1-AA11F08D6D2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.CrossCuttingConcern", "Yella.Core.CrossCuttingConcern\Yella.Framework.CrossCuttingConcern.csproj", "{29747A82-4E82-4CDF-8FB1-AA11F08D6D2C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Dapper", "Yella.Core.Dapper\Yella.Core.Dapper.csproj", "{3255BC5F-5F2F-4CDD-AAB5-8217CAD6CCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Dapper", "Yella.Core.Dapper\Yella.Framework.Dapper.csproj", "{3255BC5F-5F2F-4CDD-AAB5-8217CAD6CCD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Domain", "Yella.Core.Domain\Yella.Core.Domain.csproj", "{97C5B738-4EAD-4527-8623-EF5E23FBA04A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Domain", "Yella.Core.Domain\Yella.Framework.Domain.csproj", "{97C5B738-4EAD-4527-8623-EF5E23FBA04A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Domain.Dto", "Yella.Core.Domain.Dto\Yella.Core.Domain.Dto.csproj", "{F2DF5EBC-4F76-4B4C-A62F-24A6009B0046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Domain.Dto", "Yella.Core.Domain.Dto\Yella.Framework.Domain.Dto.csproj", "{F2DF5EBC-4F76-4B4C-A62F-24A6009B0046}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.EntityFrameworkCore", "Yella.Core.EntityFrameworkCore\Yella.Core.EntityFrameworkCore.csproj", "{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.EntityFrameworkCore", "Yella.Core.EntityFrameworkCore\Yella.Framework.EntityFrameworkCore.csproj", "{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Helper", "Yella.Core.Helper\Yella.Core.Helper.csproj", "{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Helper", "Yella.Core.Helper\Yella.Framework.Helper.csproj", "{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Identity", "Yella.Core.Identity.Domain\Yella.Core.Identity.csproj", "{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Identity", "Yella.Core.Identity.Domain\Yella.Framework.Identity.csproj", "{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Middleware", "Yella.Core.Middleware\Yella.Core.Middleware.csproj", "{BC293967-88A2-490F-B385-F617E2AACAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Middleware", "Yella.Core.Middleware\Yella.Framework.Middleware.csproj", "{BC293967-88A2-490F-B385-F617E2AACAB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.WebAPI", "Yella.Core.WebAPI\Yella.Core.WebAPI.csproj", "{CB6DFE5E-F235-483D-9331-9006F22ACDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.WebAPI", "Yella.Core.WebAPI\Yella.Framework.WebAPI.csproj", "{CB6DFE5E-F235-483D-9331-9006F22ACDEE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Extension", "Yella.Core.Extension\Yella.Core.Extension.csproj", "{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Extension", "Yella.Core.Extension\Yella.Framework.Extension.csproj", "{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.AutoMapper", "Yella.Core.AutoMapper\Yella.Core.AutoMapper.csproj", "{AC237911-7A88-4C19-8FF2-B9229C31ED07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.AutoMapper", "Yella.Core.AutoMapper\Yella.Framework.AutoMapper.csproj", "{AC237911-7A88-4C19-8FF2-B9229C31ED07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Core.Localization", "Yella.Core.Localization\Yella.Core.Localization.csproj", "{CF385A46-095E-479C-935C-7C5D5F4718CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Localization", "Yella.Core.Localization\Yella.Framework.Localization.csproj", "{CF385A46-095E-479C-935C-7C5D5F4718CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

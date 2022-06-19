@@ -1,4 +1,4 @@
-﻿namespace Yella.Core.Domain.Entities;
+﻿namespace Yella.Framework.Domain.Entities;
 
 public abstract class AuditedEntity<TKey> : CreationAuditedEntity<TKey>, IAuditedEntity
     where TKey : struct

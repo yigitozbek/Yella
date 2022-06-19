@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Yella.Core.Helper.Results;
+using Yella.Framework.Helper.Results;
 
-namespace Yella.Core.Middleware.Exceptions
+namespace Yella.Framework.Middleware.Exceptions
 {
     public class ExceptionMiddleware
     {

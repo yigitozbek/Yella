@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.Identity.Entities;
+namespace Yella.Framework.Identity.Entities;
 
 public class PermissionRole<TUser, TRole> : FullAuditedEntity<Guid>
     where TUser : IdentityUser<TUser, TRole>

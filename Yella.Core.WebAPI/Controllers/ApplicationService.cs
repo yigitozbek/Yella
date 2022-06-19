@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Yella.Core.WebAPI.Controllers;
+namespace Yella.Framework.WebAPI.Controllers;
 
 
 [ApiController]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Yella.Core.Domain.Entities;
+using Yella.Framework.Domain.Entities;
 
-namespace Yella.Core.EntityFrameworkCore;
+namespace Yella.Framework.EntityFrameworkCore;
 
 public class EfCoreGenericRepository<TEntity> : RepositoryBase<TEntity>, IRepository<TEntity>
     where TEntity : Entity

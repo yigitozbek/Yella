@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Yella.Core.Domain.Dto;
-using Yella.Core.Extension;
+using Yella.Framework.Domain.Dto;
+using Yella.Framework.Extension;
 
-namespace Yella.Core.AutoMapper.Extensions;
+namespace Yella.Framework.AutoMapper.Extensions;
 
 public static class Object
 {

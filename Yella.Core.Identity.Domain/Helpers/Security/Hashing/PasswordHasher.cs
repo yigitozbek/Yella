@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Yella.Core.Identity.Helpers.Security.Hashing;
+namespace Yella.Framework.Identity.Helpers.Security.Hashing;
 
 public class PasswordHasher : IPasswordHasher
 {

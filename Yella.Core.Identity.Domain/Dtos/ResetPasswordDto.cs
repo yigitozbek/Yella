@@ -1,5 +1,5 @@
 ﻿
-namespace Yella.Core.Identity.Dtos;
+namespace Yella.Framework.Identity.Dtos;
 
 public class ResetPasswordDto  
 {

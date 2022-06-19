@@ -17,9 +17,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Yella.Core.Context\Yella.Core.Context.csproj" />
-		<ProjectReference Include="..\Yella.Core.Domain\Yella.Core.Domain.csproj" />
-		<ProjectReference Include="..\Yella.Core.EntityFrameworkCore\Yella.Core.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\Yella.Core.Context\Yella.Framework.Context.csproj" />
+		<ProjectReference Include="..\Yella.Core.Domain\Yella.Framework.Domain.csproj" />
+		<ProjectReference Include="..\Yella.Core.EntityFrameworkCore\Yella.Framework.EntityFrameworkCore.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

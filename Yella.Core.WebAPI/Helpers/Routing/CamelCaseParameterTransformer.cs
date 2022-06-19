@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
 
-namespace Yella.Core.WebAPI.Helpers.Routing
+namespace Yella.Framework.WebAPI.Helpers.Routing
 {
 
     /// <summary>

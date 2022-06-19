@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Yella.Core.Identity.Entities;
+using Yella.Framework.Identity.Entities;
 
-namespace Yella.Core.Identity.Helpers.Security.JWT;
+namespace Yella.Framework.Identity.Helpers.Security.JWT;
 
 public interface ITokenHelper<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>

@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Yella.Core.Domain.Entities;
-using Yella.Core.EntityFrameworkCore.Constants;
-using Yella.Core.Helper.Results;
+using Yella.Framework.Domain.Entities;
+using Yella.Framework.EntityFrameworkCore.Constants;
+using Yella.Framework.Helper.Results;
 
-namespace Yella.Core.EntityFrameworkCore;
+namespace Yella.Framework.EntityFrameworkCore;
 
 public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : Entity
