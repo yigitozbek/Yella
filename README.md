@@ -1,6 +1,6 @@
-## What's Yella
+## What is Yella?
 
-Yella Framework provides you with an infrastructure by providing you with the latest technology in a fast and efficient way while you are making a web project.
+* Yella Framework provides you with an infrastructure by providing you with the latest technology in a fast and efficient way while you are making a web project.
 
 ## The Libraries We Use
 
