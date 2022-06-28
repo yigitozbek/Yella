@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 		<Folder Include="Cache\Microsoft\" />
+		<Folder Include="Performances\" />
 		<Folder Include="Validations\Microsoft\" />
 	</ItemGroup>
 
