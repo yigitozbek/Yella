@@ -3,11 +3,12 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<IsPublishable>True</IsPublishable>
-		<Company>Yigit Ozbek</Company>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.0.0</Version>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Yella.Core.Helper\Yella.Framework.Helper.csproj" />
+	  <ProjectReference Include="..\Yella.Framework.Utilities\Yella.Framework.Utilities.csproj" />
 	</ItemGroup>
 
 

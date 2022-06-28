@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Yella.Framework.Domain.Entities;
-using Yella.Framework.Helper.Results;
+using Yella.Framework.Utilities.Results;
 
 namespace Yella.Framework.EntityFrameworkCore;
 

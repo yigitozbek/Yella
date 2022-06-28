@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
-using Yella.Framework.Helper.Results;
+using Yella.Framework.Utilities.Results;
 
 namespace Yella.Framework.CrossCuttingConcern.Validations.FluentValidation;
 
 /// <summary>
 /// this class uses the Fluent Validation library.
 /// </summary>
-public static class FluentValidator
+public class FluentValidator
 {
     /// <summary>
     /// This method uses for entity validation. It takes an entity and a Fluent Validation object inside
@@ -30,11 +30,12 @@ public static class FluentValidator
 
         var list = validationErrors.Select(x => x.Message).Distinct().ToList().Select(variable => new ValidationError("", "", variable)).ToList();
 
-        if (list.Count == 0)
+        if (list.Count != 0)
         {
-            return new SuccessDataResult<List<ValidationError>>();
+            return new ErrorDataResult<List<ValidationError>>(list);
         }
 
-        return new ErrorDataResult<List<ValidationError>>(list);
+        return new SuccessDataResult<List<ValidationError>>();
+
     }
 }

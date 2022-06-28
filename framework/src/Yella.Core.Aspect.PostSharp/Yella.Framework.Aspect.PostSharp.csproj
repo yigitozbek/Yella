@@ -12,15 +12,26 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="6.3.0" />
-		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+	  <Compile Remove="Authorizations\Microsoft\**" />
+	  <EmbeddedResource Remove="Authorizations\Microsoft\**" />
+	  <None Remove="Authorizations\Microsoft\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Yella.Core.Context\Yella.Framework.Context.csproj" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="PostSharp" Version="6.10.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Yella.Core.CrossCuttingConcern\Yella.Framework.CrossCuttingConcern.csproj" />
 		<ProjectReference Include="..\Yella.Core.Domain\Yella.Framework.Domain.csproj" />
 		<ProjectReference Include="..\Yella.Framework.Utilities\Yella.Framework.Utilities.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Caches\PostSharp\" />
+		<Folder Include="Properties\" />
 	</ItemGroup>
 
 </Project>

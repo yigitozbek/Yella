@@ -1,25 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	  <TargetFramework>net6.0</TargetFramework>
-	  <ImplicitUsings>enable</ImplicitUsings>
-	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	  <IsPublishable>True</IsPublishable>
-	  <PackageTags>Aspect</PackageTags>
-	  <Copyright>Yigit Ozbek</Copyright>
-	  <Company>Yigit Ozbek</Company>
-	  <Authors>Yigit Ozbek</Authors>
-	  <Version>1.0.0.3</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IsPublishable>True</IsPublishable>
+		<Copyright>Yigit Ozbek</Copyright>
+		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.0.0</Version>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Yella.Core.Domain.Dto\Yella.Framework.Domain.Dto.csproj" />
-    <ProjectReference Include="..\Yella.Core.Extension\Yella.Framework.Extension.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Yella.Core.Domain.Dto\Yella.Framework.Domain.Dto.csproj" />
+		<ProjectReference Include="..\Yella.Framework.Utilities\Yella.Framework.Utilities.csproj" />
+	</ItemGroup>
 
 </Project>

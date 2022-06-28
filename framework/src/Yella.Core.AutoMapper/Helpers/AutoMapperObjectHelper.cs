@@ -1,7 +1,6 @@
-﻿#nullable enable
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Yella.Framework.Extension;
+using Yella.Framework.Utilities.Extensions;
 
 namespace Yella.Framework.AutoMapper.Helpers;
 

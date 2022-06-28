@@ -2,15 +2,13 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<IsPublishable>True</IsPublishable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Company>Yigit Ozbek</Company>
+		<IsPublishable>True</IsPublishable>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
-		<Version>1.0.1.1</Version>
-		<PackageTags>Dapper</PackageTags>
+		<Version>1.0.0.0</Version>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>

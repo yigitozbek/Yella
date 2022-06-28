@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Yella.Framework.Helper.Results;
+using Yella.Framework.Utilities.Results;
 
 namespace Yella.Framework.Middleware.Exceptions
 {

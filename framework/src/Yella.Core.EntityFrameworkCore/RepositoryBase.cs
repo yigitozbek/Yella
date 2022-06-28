@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Yella.Framework.Domain.Entities;
 using Yella.Framework.EntityFrameworkCore.Constants;
-using Yella.Framework.Helper.Results;
+using Yella.Framework.Utilities.Results;
 
 namespace Yella.Framework.EntityFrameworkCore;
 
