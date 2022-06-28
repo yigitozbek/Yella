@@ -14,6 +14,10 @@
 
 * If you like the Yella, you can become a sponsor.
 
+Donate using cryptocurrencies:
+- ```BTC: 39Hse93PpgJCko4XdwKt5modXp1oKUFXcX```
+- ```ETH: 0x21D20b052e9546a0Eb267B08828d185250767976```
+
 
 
 
