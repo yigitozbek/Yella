@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "test\TestPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yella.Framework.Aspect.Autofac", "src\Yella.Framework.Aspect.Autofac\Yella.Framework.Aspect.Autofac.csproj", "{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yella.Framework.Cli", "src\Yella.Framework.Cli\Yella.Framework.Cli.csproj", "{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +129,7 @@ Global
 		{BB10E5A1-BC08-4E65-97C3-EEDC5CFFE17A} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{CDED8CA0-F29D-4228-9131-226E767B8314} = {22C454D9-EC7B-417A-9776-BF1E70063BFE}
 		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E144E9-0CC6-4912-87F5-C4F3B424A8D1}
