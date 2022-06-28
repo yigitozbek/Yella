@@ -27,6 +27,7 @@ public interface IRepository<TEntity, in TKey> : IRepositoryBase<TEntity>
     /// This method is used for getting entity. Returns a single data as a return value.
     /// </summary>
     /// <param name="id"></param>
+    /// <param name="includes"></param>
     /// <returns></returns>
     Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
 

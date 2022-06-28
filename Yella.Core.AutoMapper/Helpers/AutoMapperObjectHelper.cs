@@ -1,14 +1,11 @@
 ﻿#nullable enable
-using System;
-using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Yella.Framework.Domain.Dto;
 using Yella.Framework.Extension;
 
-namespace Yella.Framework.AutoMapper.Extensions;
+namespace Yella.Framework.AutoMapper.Helpers;
 
-public static class Object
+public static class AutoMapperObjectHelper
 {
     public static List<TKey> ToMapper<TKey>(this object obj)
     {
@@ -17,14 +14,11 @@ public static class Object
         return mapper!.Map<List<TKey>>(obj);
     }
 
-    public static TKey ToMapperFirst<TKey>(this object? obj)
+    public static TKey ToMapper<TKey>(this List<object>? obj) 
     {
         if (obj == null) throw new ArgumentNullException(nameof(obj));
+
         var mapper = ServiceActivator.GetScope()?.ServiceProvider.GetService<IMapper>();
         return mapper!.Map<TKey>(obj);
     }
-
-
-
-
 }

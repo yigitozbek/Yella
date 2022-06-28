@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Yella.Core.Context\Yella.Framework.Context.csproj" />
 		<ProjectReference Include="..\Yella.Core.Domain\Yella.Framework.Domain.csproj" />
 		<ProjectReference Include="..\Yella.Core.Helper\Yella.Framework.Helper.csproj" />
 	</ItemGroup>

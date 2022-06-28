@@ -23,7 +23,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
 
         await _context.SaveChangesAsync();
 
-        return new DataResult<TEntity>(entity, true, Messages.Added);
+        return new DataResult<TEntity>(entity, true, CrudMessage.Added);
     }
 
     /// <summary>
@@ -55,6 +55,21 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     }
 
     /// <summary>
+    /// This method is used for the absence of data. Returns a single data as a return value.
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
+    {
+        var query = Queryable(expression);
+
+        query = includes.Aggregate(query, (current, include) => current.Include(include));
+
+        return await query.FirstOrDefaultAsync();
+    }
+
+    /// <summary>
     /// This method fetches the data to witch Entities are related
     /// </summary>
     /// <param name="includes"></param>
@@ -66,7 +81,6 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
         return await query.ToListAsync();
-
     }
 
     /// <summary>
@@ -81,7 +95,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
 
         await _context.SaveChangesAsync();
 
-        return new SuccessResult(Messages.Removed);
+        return new SuccessResult(CrudMessage.Removed);
     }
 
     /// <summary>
@@ -95,7 +109,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
 
         await _context.SaveChangesAsync();
 
-        return new SuccessDataResult<TEntity>(entity, Messages.Updated);
+        return new SuccessDataResult<TEntity>(entity, CrudMessage.Updated);
     }
 
     /// <summary>
@@ -112,6 +126,21 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     }
 
     /// <summary>
+    /// This method is used for getting entity. Returns a single data as a return value.
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
+    {
+        var query = Queryable(expression);
+
+        query = includes.Aggregate(query, (current, include) => current.Include(include));
+
+        return await query.FirstAsync();
+    }
+
+    /// <summary>
     /// This method returns how many records are in the query
     /// </summary>
     /// <param name="expression"></param>
@@ -119,9 +148,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<int> CountAsync(Expression<Func<TEntity, bool>> expression)
     {
         var query = await Queryable(expression).CountAsync();
-
         return query;
-
     }
 
     /// <summary>
@@ -170,14 +197,12 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     protected IQueryable<TEntity> Queryable()
     {
         var query = _context.Set<TEntity>() as IQueryable<TEntity>;
-
         return query;
     }
 
     protected IQueryable<TEntity> Queryable(Expression<Func<TEntity, bool>> expression)
     {
         var query = _context.Set<TEntity>().Where(expression);
-
         return query;
     }
 

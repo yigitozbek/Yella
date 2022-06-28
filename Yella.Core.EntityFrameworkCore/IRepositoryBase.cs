@@ -51,6 +51,14 @@ public interface IRepositoryBase<TEntity>
     Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression);
 
     /// <summary>
+    /// This method is used for getting entity. Returns a single data as a return value.
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes);
+
+    /// <summary>
     /// This method returns how many records are in the query
     /// </summary>
     /// <param name="expression"></param>
@@ -78,6 +86,15 @@ public interface IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <returns></returns>
     Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression);
+
+    /// <summary>
+    /// This method is used for the absence of data. Returns a single data as a return value.
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes);
+
 
     /// <summary>
     /// This method fetches the data to witch Entities are related

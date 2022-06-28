@@ -5,7 +5,7 @@ using PostSharp.Serialization;
 using Yella.Framework.CrossCuttingConcern.Validations.FluentValidation;
 using Yella.Framework.Helper.Extensions;
 
-namespace Yella.Framework.Aspect.Validations.Postsharp;
+namespace Yella.Framework.Aspect.PostSharp.Validations;
 
 
 [PSerializable]

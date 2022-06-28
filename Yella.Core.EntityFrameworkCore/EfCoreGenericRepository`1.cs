@@ -27,7 +27,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
         _context.Entry(entity).State = EntityState.Deleted;
 #pragma warning restore CS8634
         await _context.SaveChangesAsync();
-        return new SuccessResult(Messages.Removed);
+        return new SuccessResult(CrudMessage.Removed);
     }
 
     /// <summary>

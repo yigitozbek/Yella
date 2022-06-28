@@ -7,7 +7,7 @@ using PostSharp.Serialization;
 using Yella.Framework.Extension;
 using Yella.Framework.Helper.Results;
 
-namespace Yella.Framework.Aspect.Authorizations.PostSharp;
+namespace Yella.Framework.Aspect.PostSharp.Authorizations;
 
 [PSerializable]
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Class)]

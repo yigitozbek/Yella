@@ -3,7 +3,7 @@ using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
 using PostSharp.Serialization;
 
-namespace Yella.Framework.Aspect.Transactions.PostSharp;
+namespace Yella.Framework.Aspect.PostSharp.Transactions;
 
 [PSerializable]
 [AttributeUsage(AttributeTargets.Method)]
