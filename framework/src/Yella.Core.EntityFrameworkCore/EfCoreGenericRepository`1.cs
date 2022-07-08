@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Yella.Framework.Context;
 using Yella.Framework.Domain.Entities;
 using Yella.Framework.EntityFrameworkCore.Constants;
 using Yella.Framework.Utilities.Results;
@@ -11,8 +12,12 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     where TKey : struct
 {
     private readonly DbContext _context;
-
-    public EfCoreGenericRepository(DbContext context) : base(context) => _context = context;
+    private readonly IApplicationDbContext _applicationDbContext;
+    public EfCoreGenericRepository(DbContext context, IApplicationDbContext applicationDbContext) : base(applicationDbContext, context)
+    {
+        _context = context;
+        _applicationDbContext = applicationDbContext;
+    }
 
 
     /// <summary>
@@ -37,7 +42,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <returns></returns>
     public async Task<TEntity> GetAsync(TKey id)
     {
-        var query =await Queryable(x => x.Id.Equals(id)).FirstAsync();
+        var query = await _applicationDbContext.Queryable<TEntity>(x => x.Id.Equals(id)).FirstAsync();
         return query;
     }
 
@@ -49,7 +54,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <returns></returns>
     public async Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = Queryable(x => x.Id.Equals(id));
+        var query = _applicationDbContext.Queryable<TEntity>(x => x.Id.Equals(id));
         query = includes.Aggregate(query, (current, include) => current.Include(include));
         return await query.FirstAsync();
     }
@@ -61,7 +66,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(TKey id)
     {
-        var query = Queryable(x => x.Id.Equals(id));
+        var query = _applicationDbContext.Queryable<TEntity>(x => x.Id.Equals(id));
         return await query.FirstOrDefaultAsync();
     }
 
@@ -73,7 +78,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(TKey id, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = Queryable(x => x.Id.Equals(id));
+        var query = _applicationDbContext.Queryable<TEntity>(x => x.Id.Equals(id));
         query = includes.Aggregate(query, (current, include) => current.Include(include));
         return await query.FirstOrDefaultAsync();
     }

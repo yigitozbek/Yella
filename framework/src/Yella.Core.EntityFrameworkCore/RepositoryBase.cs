@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Yella.Framework.Context;
 using Yella.Framework.Domain.Entities;
 using Yella.Framework.EntityFrameworkCore.Constants;
 using Yella.Framework.Utilities.Results;
@@ -9,8 +10,13 @@ namespace Yella.Framework.EntityFrameworkCore;
 public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : Entity
 {
-    private readonly DbContext _context;
-    public RepositoryBase(DbContext context) => _context = context;
+    private readonly IApplicationDbContext _applicationDbContext;
+    private readonly DbContext _dbContext;
+    public RepositoryBase(IApplicationDbContext applicationDbContext, DbContext dbContext)
+    {
+        _applicationDbContext = applicationDbContext;
+        _dbContext = dbContext;
+    }
 
     /// <summary>
     /// This method is used to insert the data.
@@ -19,9 +25,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IDataResult<TEntity>> AddAsync(TEntity entity)
     {
-        await _context.Set<TEntity>().AddAsync(entity);
+        await _applicationDbContext.Set<TEntity>().AddAsync(entity);
 
-        await _context.SaveChangesAsync();
+        await _applicationDbContext.SaveChangesAsync();
 
         return new DataResult<TEntity>(entity, true, CrudMessage.Added);
     }
@@ -33,9 +39,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IResult> AddRangeAsync(IEnumerable<TEntity> entities)
     {
-        await _context.Set<TEntity>().AddRangeAsync(entities);
+        await _applicationDbContext.Set<TEntity>().AddRangeAsync(entities);
 
-        await _context.SaveChangesAsync();
+        await _applicationDbContext.SaveChangesAsync();
 
         return new SuccessResult();
     }
@@ -47,9 +53,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IResult> UpdateRangeAsync(IEnumerable<TEntity> entities)
     {
-        _context.Set<TEntity>().UpdateRange(entities);
+        _applicationDbContext.Set<TEntity>().UpdateRange(entities);
 
-        await _context.SaveChangesAsync();
+        await _applicationDbContext.SaveChangesAsync();
 
         return new SuccessResult();
     }
@@ -62,7 +68,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = Queryable(expression);
+        var query = _applicationDbContext.Queryable<TEntity>(expression);
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -76,7 +82,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IEnumerable<TEntity>> WithIncludeAsync(params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = Queryable();
+        var query = _applicationDbContext.Queryable<TEntity>();
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -91,9 +97,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<IResult> DeleteAsync(TEntity entity)
     {
 
-        _context.Entry(entity).State = EntityState.Deleted;
+        _dbContext.Entry(entity).State = EntityState.Deleted;
 
-        await _context.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
 
         return new SuccessResult(CrudMessage.Removed);
     }
@@ -105,9 +111,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IDataResult<TEntity>> UpdateAsync(TEntity entity)
     {
-        _context.Entry(entity).State = EntityState.Modified;
+        _dbContext.Entry(entity).State = EntityState.Modified;
 
-        await _context.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
 
         return new SuccessDataResult<TEntity>(entity, CrudMessage.Updated);
     }
@@ -120,7 +126,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
     {
 
-        var query = await Queryable(expression).FirstAsync();
+        var query = await _applicationDbContext.Queryable<TEntity>(expression).FirstAsync();
 
         return query;
     }
@@ -133,7 +139,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = Queryable(expression);
+        var query = _applicationDbContext.Queryable<TEntity>(expression);
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -147,7 +153,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<int> CountAsync(Expression<Func<TEntity, bool>> expression)
     {
-        var query = await Queryable(expression).CountAsync();
+        var query = await _applicationDbContext.Queryable<TEntity>(expression).CountAsync();
         return query;
     }
 
@@ -160,8 +166,8 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     {
         var query =
          expression != null
-            ? await Queryable(expression).ToListAsync()
-            : await Queryable().ToListAsync();
+            ? await _applicationDbContext.Queryable<TEntity>(expression).ToListAsync()
+            : await _applicationDbContext.Queryable<TEntity>().ToListAsync();
 
         return query;
     }
@@ -175,8 +181,8 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[] includes)
     {
         var query = expression != null
-            ? Queryable(expression)
-            : Queryable();
+            ? _applicationDbContext.Queryable<TEntity>(expression)
+            : _applicationDbContext.Queryable<TEntity>();
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -190,20 +196,10 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression)
     {
-        var query = await Queryable(expression).FirstOrDefaultAsync();
+        var query = await _applicationDbContext.Queryable<TEntity>(expression).FirstOrDefaultAsync();
         return query;
     }
 
-    protected IQueryable<TEntity> Queryable()
-    {
-        var query = _context.Set<TEntity>() as IQueryable<TEntity>;
-        return query;
-    }
 
-    protected IQueryable<TEntity> Queryable(Expression<Func<TEntity, bool>> expression)
-    {
-        var query = _context.Set<TEntity>().Where(expression);
-        return query;
-    }
 
 }

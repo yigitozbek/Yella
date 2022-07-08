@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Yella.Framework.Domain.Dto">
+      <HintPath>..\..\..\framework\src\Yella.Core.Domain.Dto\bin\Debug\net6.0\Yella.Framework.Domain.Dto.dll</HintPath>
+    </Reference>
+    <Reference Include="Yella.Framework.Utilities">
+      <HintPath>..\..\..\framework\src\Yella.Framework.Utilities\bin\Debug\net6.0\Yella.Framework.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
