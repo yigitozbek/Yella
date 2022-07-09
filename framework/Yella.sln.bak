@@ -3,41 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Aspect.PostSharp", "src\Yella.Core.Aspect.PostSharp\Yella.Framework.Aspect.PostSharp.csproj", "{6DAAD826-C12E-4F80-9F15-BE728BF3C7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Aspect.PostSharp", "src\Yella.Aspect.PostSharp\Yella.Aspect.PostSharp.csproj", "{6DAAD826-C12E-4F80-9F15-BE728BF3C7E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Context", "src\Yella.Core.Context\Yella.Framework.Context.csproj", "{824DE5DD-98F6-4D9F-BA3C-E73C4D361EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Context", "src\Yella.Context\Yella.Context.csproj", "{824DE5DD-98F6-4D9F-BA3C-E73C4D361EB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.CrossCuttingConcern", "src\Yella.Core.CrossCuttingConcern\Yella.Framework.CrossCuttingConcern.csproj", "{29747A82-4E82-4CDF-8FB1-AA11F08D6D2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.CrossCuttingConcern", "src\Yella.CrossCuttingConcern\Yella.CrossCuttingConcern.csproj", "{29747A82-4E82-4CDF-8FB1-AA11F08D6D2C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Dapper", "src\Yella.Core.Dapper\Yella.Framework.Dapper.csproj", "{3255BC5F-5F2F-4CDD-AAB5-8217CAD6CCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Dapper", "src\Yella.Dapper\Yella.Dapper.csproj", "{3255BC5F-5F2F-4CDD-AAB5-8217CAD6CCD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Domain", "src\Yella.Core.Domain\Yella.Framework.Domain.csproj", "{97C5B738-4EAD-4527-8623-EF5E23FBA04A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Domain", "src\Yella.Domain\Yella.Domain.csproj", "{97C5B738-4EAD-4527-8623-EF5E23FBA04A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Domain.Dto", "src\Yella.Core.Domain.Dto\Yella.Framework.Domain.Dto.csproj", "{F2DF5EBC-4F76-4B4C-A62F-24A6009B0046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Domain.Dto", "src\Yella.Domain.Dto\Yella.Domain.Dto.csproj", "{F2DF5EBC-4F76-4B4C-A62F-24A6009B0046}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.EntityFrameworkCore", "src\Yella.Core.EntityFrameworkCore\Yella.Framework.EntityFrameworkCore.csproj", "{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.EntityFrameworkCore", "src\Yella.EntityFrameworkCore\Yella.EntityFrameworkCore.csproj", "{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Helper", "src\Yella.Core.Helper\Yella.Framework.Helper.csproj", "{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Identity", "src\Yella.Identity\Yella.Identity.csproj", "{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Identity", "src\Yella.Core.Identity\Yella.Framework.Identity.csproj", "{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Middleware", "src\Yella.Middleware\Yella.Middleware.csproj", "{BC293967-88A2-490F-B385-F617E2AACAB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Middleware", "src\Yella.Core.Middleware\Yella.Framework.Middleware.csproj", "{BC293967-88A2-490F-B385-F617E2AACAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.WebAPI", "src\Yella.WebAPI\Yella.WebAPI.csproj", "{CB6DFE5E-F235-483D-9331-9006F22ACDEE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.WebAPI", "src\Yella.Core.WebAPI\Yella.Framework.WebAPI.csproj", "{CB6DFE5E-F235-483D-9331-9006F22ACDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.AutoMapper", "src\Yella.AutoMapper\Yella.AutoMapper.csproj", "{AC237911-7A88-4C19-8FF2-B9229C31ED07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Extension", "src\Yella.Core.Extension\Yella.Framework.Extension.csproj", "{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Localization", "src\Yella.Localization\Yella.Localization.csproj", "{CF385A46-095E-479C-935C-7C5D5F4718CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.AutoMapper", "src\Yella.Core.AutoMapper\Yella.Framework.AutoMapper.csproj", "{AC237911-7A88-4C19-8FF2-B9229C31ED07}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Localization", "src\Yella.Core.Localization\Yella.Framework.Localization.csproj", "{CF385A46-095E-479C-935C-7C5D5F4718CC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Framework.Utilities", "src\Yella.Framework.Utilities\Yella.Framework.Utilities.csproj", "{BB10E5A1-BC08-4E65-97C3-EEDC5CFFE17A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Utilities", "src\Yella.Utilities\Yella.Utilities.csproj", "{BB10E5A1-BC08-4E65-97C3-EEDC5CFFE17A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{645EE439-7C2E-4B21-9DE4-98B4D80F859F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{22C454D9-EC7B-417A-9776-BF1E70063BFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{CDED8CA0-F29D-4228-9131-226E767B8314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "test\TestProject1\TestProject1.csproj", "{CDED8CA0-F29D-4228-9131-226E767B8314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yella.Aspect.Autofac", "src\Yella.Aspect.Autofac\Yella.Aspect.Autofac.csproj", "{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yella.Cli", "src\Yella.Cli\Yella.Cli.csproj", "{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,10 +73,6 @@ Global
 		{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E34659F-8DB1-42D1-BA87-CB4002C9C17F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,10 +85,6 @@ Global
 		{CB6DFE5E-F235-483D-9331-9006F22ACDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB6DFE5E-F235-483D-9331-9006F22ACDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB6DFE5E-F235-483D-9331-9006F22ACDEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC237911-7A88-4C19-8FF2-B9229C31ED07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC237911-7A88-4C19-8FF2-B9229C31ED07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC237911-7A88-4C19-8FF2-B9229C31ED07}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -109,6 +101,14 @@ Global
 		{CDED8CA0-F29D-4228-9131-226E767B8314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDED8CA0-F29D-4228-9131-226E767B8314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDED8CA0-F29D-4228-9131-226E767B8314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,15 +121,15 @@ Global
 		{97C5B738-4EAD-4527-8623-EF5E23FBA04A} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{F2DF5EBC-4F76-4B4C-A62F-24A6009B0046} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{2E34659F-8DB1-42D1-BA87-CB4002C9C17F} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
-		{64C34181-0B6C-4E52-A887-4FFCEC4D2ADC} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{836BE31C-C572-4BFB-BD3F-9B0A7C860CA3} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{BC293967-88A2-490F-B385-F617E2AACAB1} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{CB6DFE5E-F235-483D-9331-9006F22ACDEE} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
-		{E4A3DDC9-9DE0-4A07-ADA8-862E7DCE052A} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{AC237911-7A88-4C19-8FF2-B9229C31ED07} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{CF385A46-095E-479C-935C-7C5D5F4718CC} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{BB10E5A1-BC08-4E65-97C3-EEDC5CFFE17A} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{CDED8CA0-F29D-4228-9131-226E767B8314} = {22C454D9-EC7B-417A-9776-BF1E70063BFE}
+		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
+		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E144E9-0CC6-4912-87F5-C4F3B424A8D1}

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPublishable>True</IsPublishable>
+		<Company>Yigit Ozbek</Company>
+		<Copyright>Yigit Ozbek</Copyright>
+		<Authors>Yigit Ozbek</Authors>
+		<Version>1.0.3.6</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="FluentValidation" Version="11.0.2" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Yella.Context\Yella.Context.csproj" />
+		<ProjectReference Include="..\Yella.Domain\Yella.Domain.csproj" />
+		<ProjectReference Include="..\Yella.EntityFrameworkCore\Yella.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\Yella.Utilities\Yella.Utilities.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Mappers\AutoMapper\" />
+	</ItemGroup>
+
+</Project>
