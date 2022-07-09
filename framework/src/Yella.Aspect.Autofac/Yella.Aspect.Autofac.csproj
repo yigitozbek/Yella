@@ -10,6 +10,7 @@
     <Folder Include="Caching\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Logging\" />
+    <Folder Include="Performances\" />
     <Folder Include="Validations\" />
     <Folder Include="Transactions\" />
   </ItemGroup>

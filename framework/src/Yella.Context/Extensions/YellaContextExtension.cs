@@ -6,8 +6,7 @@ namespace Yella.Context.Extensions;
 
 public static class YellaContextExtension
 {
-    public static void AddContextService<TApplicationDbContext>(this IServiceCollection services,
-        IConfiguration configuration,string connectionString) where TApplicationDbContext : DbContext
+    public static void AddContextService<TApplicationDbContext>(this IServiceCollection services, string connectionString) where TApplicationDbContext : DbContext
     {
         services.AddDbContext<TApplicationDbContext>(option => option.UseSqlServer(connectionString));
     }

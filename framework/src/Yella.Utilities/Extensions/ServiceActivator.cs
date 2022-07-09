@@ -13,7 +13,7 @@ namespace Yella.Utilities.Extensions
         /// Configure ServiceActivator with full serviceProvider
         /// </summary>
         /// <param name="serviceProvider"></param>
-        public static void Configure(IServiceProvider? serviceProvider)
+        public static void Configure(IServiceProvider serviceProvider)
         {
             ServiceProvider = serviceProvider;
         }
