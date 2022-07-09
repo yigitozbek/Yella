@@ -6,7 +6,7 @@ using Yella.AutoMapper.Test.Entities;
 namespace Yella.AutoMapper.Test
 {
     //[TestClass]
-    public class UnitTestAutoMapper
+    public class MSAutoMapperTest
     {
         //[TestMethod]
         [PerformanceAspect(1)]

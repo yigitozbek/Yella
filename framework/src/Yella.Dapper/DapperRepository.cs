@@ -2,27 +2,36 @@
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Yella.Domain.Dto;
+using Yella.Utilities.Results;
 
 namespace Yella.Dapper;
 
 public class DapperRepository : IDapperRepository
 {
-    public readonly string ConnectionString;
+    public static string? ConnectionString;
 
-    public DapperRepository(string connectionString)
+    public IResult Connection(string connectionString)
     {
+
+        if (!string.IsNullOrEmpty(ConnectionString))
+        {
+            return new ErrorResult("Connection String has been defined before.");
+        }
+
         ConnectionString = connectionString;
+
+        return new SuccessResult("Successful");
     }
 
     public async Task<List<TEntity>> GetListAsync<TEntity>(string command) 
-        where TEntity : EntityDto
+        where TEntity : class
     {
         await using var connection = new SqlConnection(ConnectionString);
         return (await connection.QueryAsync<TEntity>(command)).AsList();
     }
 
     public async Task<TEntity> GetAsync<TEntity>(string command)
-        where TEntity : EntityDto
+        where TEntity : class
     {
         await using var connection = new SqlConnection(ConnectionString);
         return (await connection.QueryFirstAsync<TEntity>(command));

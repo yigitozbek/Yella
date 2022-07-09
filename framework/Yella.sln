@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.Cli", "src\Yella.Cli\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yella.AutoMapper.Test", "test\Yella.AutoMapper.Test\Yella.AutoMapper.Test.csproj", "{3AB280C4-263C-4591-8308-C1866321F6EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yella.Dapper.Test", "test\Yella.Dapper.Test\Yella.Dapper.Test.csproj", "{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{3AB280C4-263C-4591-8308-C1866321F6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AB280C4-263C-4591-8308-C1866321F6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AB280C4-263C-4591-8308-C1866321F6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{7F948D66-9FD4-45AE-824C-BB4789ED3FFF} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{DDD0FD9F-8F0A-4B1D-AD4E-EA808464DA62} = {645EE439-7C2E-4B21-9DE4-98B4D80F859F}
 		{3AB280C4-263C-4591-8308-C1866321F6EA} = {22C454D9-EC7B-417A-9776-BF1E70063BFE}
+		{D6A9EB98-0EF3-44ED-BD69-EE5ACD2F1031} = {22C454D9-EC7B-417A-9776-BF1E70063BFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E144E9-0CC6-4912-87F5-C4F3B424A8D1}

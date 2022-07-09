@@ -12,7 +12,7 @@ var serviceProvider = new ServiceCollection()
     .BuildServiceProvider();
 
 ServiceActivator.Configure(serviceProvider);
-var person = new UnitTestAutoMapper().GetPerson();
+var person = new MSAutoMapperTest().GetPerson();
 Console.WriteLine(person.FullName);
 
 
