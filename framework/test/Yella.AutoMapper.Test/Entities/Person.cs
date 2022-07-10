@@ -1,6 +1,8 @@
-﻿namespace Yella.AutoMapper.Test.Entities;
+﻿using Yella.Domain.Entities;
 
-public class Person
+namespace Yella.AutoMapper.Test.Entities;
+
+public class Person : FullAuditedEntity<Guid>
 {
     public Person(string name, string surname)
     {
@@ -8,7 +10,6 @@ public class Person
         Name = name;
         Surname = surname;
     }
-    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
 

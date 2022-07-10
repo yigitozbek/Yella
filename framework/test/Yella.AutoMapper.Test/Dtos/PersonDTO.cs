@@ -1,6 +1,8 @@
-﻿namespace Yella.AutoMapper.Test.Dtos;
+﻿using Yella.Domain.Dto;
 
-public class PersonDto
+namespace Yella.AutoMapper.Test.Dtos;
+
+public class PersonDto : FullAuditedEntityDto<Guid>
 {
     public string FullName { get; set; }
 }

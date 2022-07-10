@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Yella.Framework.Domain">
-      <HintPath>..\..\..\framework\src\Yella.Core.Domain\bin\Debug\net6.0\Yella.Framework.Domain.dll</HintPath>
+    <Reference Include="Yella.Domain">
+      <HintPath>..\..\..\framework\src\Yella.Domain\bin\Debug\net6.0\Yella.Domain.dll</HintPath>
     </Reference>
   </ItemGroup>
 

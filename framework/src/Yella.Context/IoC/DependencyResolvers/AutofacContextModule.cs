@@ -8,6 +8,6 @@ public class AutofacContextModule<TContext> : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.RegisterType<CoreDbContext<TContext>>().As<IApplicationDbContext>();
+        builder.RegisterType<TContext>().As<IApplicationDbContext>();
     }
 }

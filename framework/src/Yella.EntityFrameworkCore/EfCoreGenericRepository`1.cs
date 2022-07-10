@@ -11,14 +11,11 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     where TEntity : Entity<TKey>
     where TKey : struct
 {
-    private readonly DbContext _context;
     private readonly IApplicationDbContext _applicationDbContext;
-    public EfCoreGenericRepository(DbContext context, IApplicationDbContext applicationDbContext) : base(applicationDbContext, context)
+    public EfCoreGenericRepository(IApplicationDbContext applicationDbContext) : base(applicationDbContext)
     {
-        _context = context;
         _applicationDbContext = applicationDbContext;
     }
-
 
     /// <summary>
     /// This method is used for delete entity 
@@ -27,11 +24,9 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <returns></returns>
     public async Task<IResult> DeleteAsync(TKey id)
     {
-        var entity = await _context.Set<TEntity>().FindAsync(id);
-#pragma warning disable CS8634
-        _context.Entry(entity).State = EntityState.Deleted;
-#pragma warning restore CS8634
-        await _context.SaveChangesAsync();
+        var entity = await _applicationDbContext.Set<TEntity>().FindAsync(id);
+        _applicationDbContext.Entry(entity).State = EntityState.Deleted;
+        await _applicationDbContext.SaveChangesAsync();
         return new SuccessResult(CrudMessage.Removed);
     }
 

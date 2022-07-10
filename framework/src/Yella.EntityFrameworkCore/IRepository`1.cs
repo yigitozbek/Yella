@@ -1,5 +1,4 @@
-﻿#nullable enable
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using Yella.Domain.Entities;
 using Yella.Utilities.Results;
 

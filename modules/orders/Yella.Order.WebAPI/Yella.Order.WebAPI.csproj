@@ -7,7 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yella.Order.Application\Yella.Order.Application.csproj" />
+    <ProjectReference Include="..\Yella.Order.Context\Yella.Order.Context.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Yella.AutoMapper">
+      <HintPath>..\..\..\framework\src\Yella.AutoMapper\bin\Debug\net6.0\Yella.AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Yella.Context">
+      <HintPath>..\..\..\framework\src\Yella.Context\bin\Debug\net6.0\Yella.Context.dll</HintPath>
+    </Reference>
+    <Reference Include="Yella.EntityFrameworkCore">
+      <HintPath>..\..\..\framework\src\Yella.EntityFrameworkCore\bin\Debug\net6.0\Yella.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Yella.Utilities">
+      <HintPath>..\..\..\framework\src\Yella.AutoMapper\bin\Debug\net6.0\Yella.Utilities.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

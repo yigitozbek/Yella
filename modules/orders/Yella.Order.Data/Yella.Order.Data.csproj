@@ -8,10 +8,10 @@
 
   <ItemGroup>
     <Reference Include="Yella.Framework.Domain.Dto">
-      <HintPath>..\..\..\framework\src\Yella.Core.Domain.Dto\bin\Debug\net6.0\Yella.Framework.Domain.Dto.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.Domain.Dto\bin\Debug\net6.0\Yella.Domain.Dto.dll</HintPath>
     </Reference>
     <Reference Include="Yella.Framework.Utilities">
-      <HintPath>..\..\..\framework\src\Yella.Framework.Utilities\bin\Debug\net6.0\Yella.Framework.Utilities.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.Utilities\bin\Debug\net6.0\Yella.Utilities.dll</HintPath>
     </Reference>
   </ItemGroup>
 

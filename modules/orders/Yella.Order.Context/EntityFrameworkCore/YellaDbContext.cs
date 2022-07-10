@@ -1,21 +1,35 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq.Expressions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Yella.Framework.Context;
+using Yella.Context;
+using Yella.Domain.Entities;
+using Yella.Order.Domain;
 using Yella.Order.Domain.Orders;
 
 namespace Yella.Order.Context.EntityFrameworkCore
 {
-    public class YellaDbContext : CoreDbContext<YellaDbContext>
+    public class YellaDbContext : CoreDbContext<YellaDbContext>, IApplicationDbContext
     {
         public YellaDbContext(DbContextOptions<YellaDbContext> options, IHttpContextAccessor httpContextAccessor) : base(options, httpContextAccessor)
         {
 
+        }
+
+        public new IQueryable<TEntity> Queryable<TEntity>(Expression<Func<TEntity, bool>>? expression = null)
+            where TEntity : Entity
+        {
+            var query = expression != null
+                ? Set<TEntity>().Where(expression)
+                : Set<TEntity>();
+
+            if (typeof(ICompanyBase).IsAssignableFrom(typeof(TEntity)))
+            {
+                query = query.Where(
+                    x => ((ICompanyBase)x).CompanyId == new Guid("2AC9F9B6-E32A-4CBD-8C3A-7FAE94BF20C1"));
+            }
+
+            return query;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,7 +47,7 @@ namespace Yella.Order.Context.EntityFrameworkCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.NavigationBaseIncludeIgnored));
 
-        public DbSet<Domain.Orders.OrderItem> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
 
     }

@@ -11,11 +11,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : Entity
 {
     private readonly IApplicationDbContext _applicationDbContext;
-    private readonly DbContext _dbContext;
-    public RepositoryBase(IApplicationDbContext applicationDbContext, DbContext dbContext)
+    public RepositoryBase(IApplicationDbContext applicationDbContext)
     {
         _applicationDbContext = applicationDbContext;
-        _dbContext = dbContext;
     }
 
     /// <summary>
@@ -97,9 +95,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<IResult> DeleteAsync(TEntity entity)
     {
 
-        _dbContext.Entry(entity).State = EntityState.Deleted;
+        _applicationDbContext.Entry(entity).State = EntityState.Deleted;
 
-        await _dbContext.SaveChangesAsync();
+        await _applicationDbContext.SaveChangesAsync();
 
         return new SuccessResult(CrudMessage.Removed);
     }
@@ -111,9 +109,9 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<IDataResult<TEntity>> UpdateAsync(TEntity entity)
     {
-        _dbContext.Entry(entity).State = EntityState.Modified;
+        _applicationDbContext.Entry(entity).State = EntityState.Modified;
 
-        await _dbContext.SaveChangesAsync();
+        await _applicationDbContext.SaveChangesAsync();
 
         return new SuccessDataResult<TEntity>(entity, CrudMessage.Updated);
     }

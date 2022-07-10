@@ -1,20 +1,25 @@
-﻿using Yella.Framework.AutoMapper.Helpers;
-using Yella.Framework.EntityFrameworkCore;
-using Yella.Framework.Utilities.Results;
+﻿using Yella.AutoMapper.Extensions;
+using Yella.EntityFrameworkCore;
 using Yella.Order.Data.Orders.Dtos;
 using Yella.Order.Data.Orders.Interfaces;
 using Yella.Order.Domain.Orders;
+using Yella.Utilities.Results;
 
 namespace Yella.Order.Application.Modules.Orders.Services
 {
     public class OrderItemApplicationService : IOrderItemService
     {
-
-        readonly IRepository<OrderItem, Guid> _orderItemRepository;
+        private readonly IRepository<OrderItem, Guid> _orderItemRepository;
 
         public OrderItemApplicationService(IRepository<OrderItem, Guid> orderItemRepository)
         {
             _orderItemRepository = orderItemRepository;
+        }
+
+        public async Task<List<OrderItemDTO>> GetListAsync()
+        {
+            var query = await _orderItemRepository.GetListAsync();
+            return query.ToMapper<List<OrderItemDTO>>();
         }
 
         public async Task<IDataResult<OrderItemDTO>> AddAsync(OrderItemDTO input)
@@ -48,9 +53,16 @@ namespace Yella.Order.Application.Modules.Orders.Services
             return query.ToMapper<OrderItemDTO>();
         }
 
-        public Task<IDataResult<OrderItemDTO>> UpdateAsync(OrderItemDTO input)
+        public async Task<IDataResult<OrderItemDTO>> UpdateAsync(OrderItemDTO input)
         {
-            throw new NotImplementedException();
+            var result = await _orderItemRepository.UpdateAsync(input.ToMapper<OrderItem>());
+
+            if (!result.Success)
+            {
+                return new ErrorDataResult<OrderItemDTO>(result.Message);
+            }
+
+            return new SuccessDataResult<OrderItemDTO>(result.Message);
         }
     }
 }

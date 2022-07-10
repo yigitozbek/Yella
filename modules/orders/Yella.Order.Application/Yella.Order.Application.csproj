@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,24 +18,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modules\Orders\Mappers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Yella.Framework.AutoMapper">
-      <HintPath>..\..\..\framework\src\Yella.Core.AutoMapper\bin\Debug\net6.0\Yella.Framework.AutoMapper.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.AutoMapper\bin\Debug\net6.0\Yella.AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Yella.Framework.Domain">
-      <HintPath>..\..\..\framework\src\Yella.Core.EntityFrameworkCore\bin\Debug\net6.0\Yella.Framework.Domain.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.EntityFrameworkCore\bin\Debug\net6.0\Yella.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Yella.Framework.Domain.Dto">
-      <HintPath>..\..\..\framework\src\Yella.Core.AutoMapper\bin\Debug\net6.0\Yella.Framework.Domain.Dto.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.AutoMapper\bin\Debug\net6.0\Yella.Domain.Dto.dll</HintPath>
     </Reference>
     <Reference Include="Yella.Framework.EntityFrameworkCore">
-      <HintPath>..\..\..\framework\src\Yella.Core.EntityFrameworkCore\bin\Debug\net6.0\Yella.Framework.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.EntityFrameworkCore\bin\Debug\net6.0\Yella.EntityFrameworkCore.dll</HintPath>
     </Reference>
     <Reference Include="Yella.Framework.Utilities">
-      <HintPath>..\..\..\framework\src\Yella.Framework.Utilities\bin\Debug\net6.0\Yella.Framework.Utilities.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.Utilities\bin\Debug\net6.0\Yella.Utilities.dll</HintPath>
     </Reference>
   </ItemGroup>
  

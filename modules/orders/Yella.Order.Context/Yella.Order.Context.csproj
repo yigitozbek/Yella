@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,8 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Yella.Domain">
+      <HintPath>..\..\..\framework\src\Yella.Domain\bin\Debug\net6.0\Yella.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="Yella.Framework.Context">
-      <HintPath>..\..\..\framework\src\Yella.Core.Context\bin\Debug\net6.0\Yella.Framework.Context.dll</HintPath>
+      <HintPath>..\..\..\framework\src\Yella.Context\bin\Debug\net6.0\Yella.Context.dll</HintPath>
     </Reference>
   </ItemGroup>
 

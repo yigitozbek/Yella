@@ -13,7 +13,6 @@ public class CoreDbContext<TContext> : DbContext, IApplicationDbContext
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
 
-
     public CoreDbContext(DbContextOptions<TContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
     {
         _httpContextAccessor = httpContextAccessor;
@@ -21,10 +20,10 @@ public class CoreDbContext<TContext> : DbContext, IApplicationDbContext
 
     public IQueryable<TEntity> Queryable<TEntity>(Expression<Func<TEntity, bool>>? expression = null) where TEntity : Entity
     {
-        var query = expression != null 
-            ? Set<TEntity>().Where(expression) 
+        var query = expression != null
+            ? Set<TEntity>().Where(expression)
             : Set<TEntity>();
-        
+
         return query;
     }
 
