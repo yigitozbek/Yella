@@ -10,6 +10,12 @@
     <Reference Include="Yella.Domain">
       <HintPath>..\..\..\framework\src\Yella.Domain\bin\Debug\net6.0\Yella.Domain.dll</HintPath>
     </Reference>
+    <Reference Include="Yella.Identity">
+      <HintPath>..\..\..\framework\src\Yella.Identity\bin\Debug\net6.0\Yella.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Yella.Utilities">
+      <HintPath>..\..\..\framework\src\Yella.Identity\bin\Debug\net6.0\Yella.Utilities.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

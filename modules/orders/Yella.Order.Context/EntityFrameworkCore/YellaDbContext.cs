@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Yella.Context;
 using Yella.Domain.Entities;
+using Yella.Identity.Entities;
 using Yella.Order.Domain;
+using Yella.Order.Domain.Identities;
 using Yella.Order.Domain.Orders;
 
 namespace Yella.Order.Context.EntityFrameworkCore
@@ -49,6 +51,15 @@ namespace Yella.Order.Context.EntityFrameworkCore
 
         public DbSet<OrderItem> OrderItems { get; set; }
 
+
+        #region Identities
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRole<User, Role>> UserRoles { get; set; }
+        public DbSet<Permission<User, Role>> Permissions { get; set; }
+        public DbSet<PermissionRole<User, Role>> PermissionRoles { get; set; }
+        public DbSet<UserLoginLog<User, Role>> UserLoginLogs { get; set; }
+        #endregion
 
     }
 }

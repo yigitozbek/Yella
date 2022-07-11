@@ -19,16 +19,16 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     private readonly IRepository<TUser, Guid> _userRepository;
     private readonly IRepository<UserRole<TUser, TRole>, Guid> _userRoleRepository;
     private readonly IPasswordHasher _passwordHasher;
-    private readonly IPermissionService<TUser, TRole> _permissionService;
+    private readonly IIdentityPermissionService<TUser, TRole> _permissionService;
     private readonly ITokenHelper<TUser, TRole> _tokenHelper;
-    private readonly IRoleService<TUser, TRole> _roleService;
+    private readonly IIdentityRoleService<TUser, TRole> _roleService;
 
     public AuthService(IRepository<TUser, Guid> userRepository,
         IPasswordHasher passwordHasher,
         ITokenHelper<TUser, TRole> tokenHelper,
         IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository,
-        IRoleService<TUser, TRole> roleService,
-        IPermissionService<TUser, TRole> permissionService,
+        IIdentityRoleService<TUser, TRole> roleService,
+        IIdentityPermissionService<TUser, TRole> permissionService,
         IRepository<UserLoginLog<TUser, TRole>, long> userLoginLogRepository, IConfiguration configuration)
     {
         _userRepository = userRepository;
@@ -120,6 +120,15 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
 
         return new SuccessDataResult<AccessToken>(accessToken, IdentityMessages.Successful);
     }
+
+    /// <summary>
+    /// This method allows it to be login
+    /// </summary>
+    /// <param name="loginDto"></param>
+    /// <returns>Return value Token returns</returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto) => await LoginAsync(loginDto, null);
+
 
     /// <summary>
     /// This method is a Private method. It is used to create tokens.

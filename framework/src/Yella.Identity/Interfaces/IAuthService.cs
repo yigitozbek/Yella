@@ -29,6 +29,14 @@ public interface IAuthService<TUser, TRole>
     Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto, List<Claim> claims);
 
     /// <summary>
+    /// This method allows it to be login
+    /// </summary>
+    /// <param name="loginDto"></param>
+    /// <returns>Return value Token returns</returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto);
+
+    /// <summary>
     /// This method fetches the last login logs
     /// </summary>
     /// <param name="id"></param>

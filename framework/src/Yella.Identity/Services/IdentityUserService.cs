@@ -6,13 +6,13 @@ using Yella.Utilities.Results;
 
 namespace Yella.Identity.Services;
 
-public class UserService<TUser, TRole> : IUserService<TUser, TRole>
+public class IdentityUserService<TUser, TRole> : IIdentityUserService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {
     private readonly IRepository<TUser, Guid> _userRepository;
 
-    public UserService(IRepository<TUser, Guid> userRepository)
+    public IdentityUserService(IRepository<TUser, Guid> userRepository)
     {
         _userRepository = userRepository;
     }

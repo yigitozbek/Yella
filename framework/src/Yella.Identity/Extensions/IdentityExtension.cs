@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -6,8 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Yella.Identity.Entities;
 using Yella.Identity.Helpers.Security.JWT;
-using Yella.Identity.Middlewares;
-using Yella.Utilities.Security.Encryption;
 
 namespace Yella.Identity.Extensions;
 
@@ -45,7 +44,7 @@ public static class IdentityExtension
                     ValidAudience = tokenOptions.Audience,
 
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOptions.SecurityKey)) ,
 
                     ValidateIssuer = true,
                     ValidIssuer = tokenOptions.Issuer,
@@ -67,7 +66,7 @@ public static class IdentityExtension
 
         app.UseSession();
 
-        app.UseIdentity();
+        //app.UseIdentity();
 
         app.UseAuthentication();
 

@@ -12,8 +12,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FluentValidation" Version="11.0.2" />
-	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+		<PackageReference Include="FluentValidation" Version="11.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -24,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Mappers\AutoMapper\" />
+		<Folder Include="Mappers\AutoMapper\" />
 	</ItemGroup>
 
 </Project>

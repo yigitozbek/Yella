@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Yella.Context;
+﻿using Microsoft.EntityFrameworkCore;
 using Yella.Identity.Entities;
 
 namespace Yella.Identity.Interfaces;

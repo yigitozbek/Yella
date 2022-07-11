@@ -19,8 +19,8 @@ public class AutofacIdentityModule<TUser, TRole> : Module
         builder.RegisterType<JwtHelper<TUser, TRole>>().As<ITokenHelper<TUser, TRole>>();
 
         builder.RegisterType<AuthService<TUser, TRole>>().As<IAuthService<TUser, TRole>>();
-        builder.RegisterType<UserService<TUser, TRole>>().As<IUserService<TUser, TRole>>();
-        builder.RegisterType<RoleService<TUser, TRole>>().As<IRoleService<TUser, TRole>>();
-        builder.RegisterType<PermissionService<TUser, TRole>>().As<IPermissionService<TUser, TRole>>();
+        builder.RegisterType<IdentityUserService<TUser, TRole>>().As<IIdentityUserService<TUser, TRole>>();
+        builder.RegisterType<IdentityRoleService<TUser, TRole>>().As<IIdentityRoleService<TUser, TRole>>();
+        builder.RegisterType<IdentityPermissionService<TUser, TRole>>().As<IIdentityPermissionService<TUser, TRole>>();
     }
 }

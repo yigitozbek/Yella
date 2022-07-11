@@ -23,6 +23,9 @@
     <Reference Include="Yella.Framework.Context">
       <HintPath>..\..\..\framework\src\Yella.Context\bin\Debug\net6.0\Yella.Context.dll</HintPath>
     </Reference>
+    <Reference Include="Yella.Identity">
+      <HintPath>..\..\..\framework\src\Yella.Identity\bin\Debug\net6.0\Yella.Identity.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

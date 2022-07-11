@@ -7,14 +7,14 @@ using Yella.Utilities.Results;
 
 namespace Yella.Identity.Services;
 
-public class RoleService<TUser, TRole> : IRoleService<TUser, TRole>
+public class IdentityRoleService<TUser, TRole> : IIdentityRoleService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {
     private readonly IRepository<TRole, Guid> _roleRepository;
     private readonly IRepository<UserRole<TUser, TRole>, Guid> _userRoleRepository;
 
-    public RoleService(IRepository<TRole, Guid> roleRepository, IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository)
+    public IdentityRoleService(IRepository<TRole, Guid> roleRepository, IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository)
     {
         _roleRepository = roleRepository;
         _userRoleRepository = userRoleRepository;

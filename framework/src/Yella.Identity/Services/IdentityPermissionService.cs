@@ -7,7 +7,7 @@ using Yella.Utilities.Results;
 
 namespace Yella.Identity.Services;
 
-public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
+public class IdentityPermissionService<TUser, TRole> : IIdentityPermissionService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>, new()
 {
@@ -15,7 +15,7 @@ public class PermissionService<TUser, TRole> : IPermissionService<TUser, TRole>
     private readonly IRepository<PermissionRole<TUser, TRole>, Guid> _permissionRoleRepository;
     private readonly IRepository<Permission<TUser, TRole>, short> _permissionRepository;
 
-    public PermissionService(
+    public IdentityPermissionService(
         IRepository<Permission<TUser, TRole>, short> permissionRepository,
         IRepository<PermissionRole<TUser, TRole>, Guid> permissionRoleRepository,
         IRepository<TRole, Guid> roleRepository

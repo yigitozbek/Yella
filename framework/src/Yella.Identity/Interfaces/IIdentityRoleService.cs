@@ -4,7 +4,7 @@ using Yella.Utilities.Results;
 
 namespace Yella.Identity.Interfaces;
 
-public interface IRoleService<TUser, TRole>
+public interface IIdentityRoleService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>
     where TRole : IdentityRole<TUser, TRole>
 {

@@ -33,6 +33,13 @@
     <Reference Include="Yella.Framework.Utilities">
       <HintPath>..\..\..\framework\src\Yella.Utilities\bin\Debug\net6.0\Yella.Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="Yella.Identity">
+      <HintPath>..\..\..\framework\src\Yella.Identity\bin\Debug\net6.0\Yella.Identity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modules\Identities\" />
   </ItemGroup>
  
 
