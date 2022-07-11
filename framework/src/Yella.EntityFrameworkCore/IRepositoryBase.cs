@@ -7,7 +7,6 @@ namespace Yella.EntityFrameworkCore;
 public interface IRepositoryBase<TEntity>
     where TEntity : Entity
 {
-
     /// <summary>
     /// This method is used to insert the data.
     /// </summary>
@@ -28,6 +27,13 @@ public interface IRepositoryBase<TEntity>
     /// <param name="entity"></param>
     /// <returns></returns>
     Task<IResult> DeleteAsync(TEntity entity);
+
+    /// <summary>
+    /// This method is used for delete entity 
+    /// </summary>
+    /// <param name="entities"></param>
+    /// <returns></returns>
+    Task<IResult> DeleteRangeAsync(List<TEntity> entities);
 
     /// <summary>
     /// This method is used for updating entity.
@@ -95,12 +101,10 @@ public interface IRepositoryBase<TEntity>
     /// <returns></returns>
     Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes);
 
-
     /// <summary>
     /// This method fetches the data to witch Entities are related
     /// </summary>
     /// <param name="includes"></param>
     /// <returns></returns>
     Task<IEnumerable<TEntity>> WithIncludeAsync(params Expression<Func<TEntity, object>>[] includes);
-
 }

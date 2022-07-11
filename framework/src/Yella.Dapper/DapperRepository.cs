@@ -1,7 +1,5 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
-using Microsoft.Extensions.Configuration;
-using Yella.Domain.Dto;
 using Yella.Utilities.Results;
 
 namespace Yella.Dapper;

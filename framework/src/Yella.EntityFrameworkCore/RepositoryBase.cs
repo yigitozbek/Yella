@@ -103,6 +103,18 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     }
 
     /// <summary>
+    /// This method is used for delete entities 
+    /// </summary>
+    /// <param name="entities"></param>
+    /// <returns></returns>
+    public async Task<IResult> DeleteRangeAsync(List<TEntity> entities)
+    {
+        _applicationDbContext.Set<TEntity>().RemoveRange(entities);
+        await _applicationDbContext.SaveChangesAsync();
+        return new SuccessResult(CrudMessage.Successful);
+    }
+
+    /// <summary>
     /// This method is used for updating entity.
     /// </summary>
     /// <param name="entity"></param>
@@ -124,7 +136,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
     {
 
-        var query = await _applicationDbContext.Queryable<TEntity>(expression).FirstAsync();
+        var query = await _applicationDbContext.Queryable(expression).FirstAsync();
 
         return query;
     }
@@ -137,7 +149,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = _applicationDbContext.Queryable<TEntity>(expression);
+        var query = _applicationDbContext.Queryable(expression);
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -151,7 +163,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<int> CountAsync(Expression<Func<TEntity, bool>> expression)
     {
-        var query = await _applicationDbContext.Queryable<TEntity>(expression).CountAsync();
+        var query = await _applicationDbContext.Queryable(expression).CountAsync();
         return query;
     }
 
@@ -164,7 +176,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     {
         var query =
          expression != null
-            ? await _applicationDbContext.Queryable<TEntity>(expression).ToListAsync()
+            ? await _applicationDbContext.Queryable(expression).ToListAsync()
             : await _applicationDbContext.Queryable<TEntity>().ToListAsync();
 
         return query;
@@ -179,7 +191,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[] includes)
     {
         var query = expression != null
-            ? _applicationDbContext.Queryable<TEntity>(expression)
+            ? _applicationDbContext.Queryable(expression)
             : _applicationDbContext.Queryable<TEntity>();
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
@@ -194,7 +206,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression)
     {
-        var query = await _applicationDbContext.Queryable<TEntity>(expression).FirstOrDefaultAsync();
+        var query = await _applicationDbContext.Queryable(expression).FirstOrDefaultAsync();
         return query;
     }
 

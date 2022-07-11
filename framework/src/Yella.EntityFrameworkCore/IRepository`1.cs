@@ -30,6 +30,7 @@ public interface IRepository<TEntity, in TKey> : IRepositoryBase<TEntity>
     /// <returns></returns>
     Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
 
+
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.
     /// </summary>
