@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Yella.Identity.Dtos;
 using Yella.Identity.Helpers.Security.JWT;
 using Yella.Identity.Interfaces;

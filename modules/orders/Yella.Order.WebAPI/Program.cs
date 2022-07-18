@@ -19,7 +19,7 @@ using Yella.Order.Context.EntityFrameworkCore;
 using Yella.Order.Domain.Identities;
 using Yella.Order.WebAPI.Controllers;
 using Yella.Utilities.Extensions;
-using Yella.WebAPI.Helpers.Routing;
+using Yella.Utilities.Security.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 

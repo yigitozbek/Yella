@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Yella.EntityFrameworkCore;
 using Yella.Identity.Constants;
@@ -8,6 +9,7 @@ using Yella.Identity.Helpers.Security.JWT;
 using Yella.Identity.Interfaces;
 using Yella.Utilities.Results;
 using Yella.Utilities.Security.Hashing;
+using IResult = Yella.Utilities.Results.IResult;
 
 namespace Yella.Identity.Services;
 
@@ -22,6 +24,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     private readonly IIdentityPermissionService<TUser, TRole> _permissionService;
     private readonly ITokenHelper<TUser, TRole> _tokenHelper;
     private readonly IIdentityRoleService<TUser, TRole> _roleService;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public AuthService(IRepository<TUser, Guid> userRepository,
         IPasswordHasher passwordHasher,
@@ -29,7 +32,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository,
         IIdentityRoleService<TUser, TRole> roleService,
         IIdentityPermissionService<TUser, TRole> permissionService,
-        IRepository<UserLoginLog<TUser, TRole>, long> userLoginLogRepository, IConfiguration configuration)
+        IRepository<UserLoginLog<TUser, TRole>, long> userLoginLogRepository, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
@@ -38,6 +41,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         _roleService = roleService;
         _permissionService = permissionService;
         _userLoginLogRepository = userLoginLogRepository;
+        _httpContextAccessor = httpContextAccessor;
         configuration.GetSection("TokenOptions").Get<JwtHelper<TUser, TRole>.TokenOptions>();
 
     }
@@ -136,7 +140,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="userId"></param>
     /// <param name="claims"></param>
     /// <returns></returns>
-    private async Task<AccessToken> CreateToken(Guid userId, List<Claim>? claims)
+    private async Task<AccessToken> CreateToken(Guid userId, IEnumerable<Claim> claims)
     {
         var user = await _userRepository.GetAsync(userId);
 
@@ -191,10 +195,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="user"></param>
     /// <param name="password"></param>
     /// <returns></returns>
-    private bool VerifyPasswordHash(TUser user, string password)
-    {
-        return _passwordHasher.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt);
-    }
+    private bool VerifyPasswordHash(TUser user, string password) => _passwordHasher.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt);
 
     /// <summary>
     /// 
@@ -273,6 +274,31 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
         }
 
         return new SuccessDataResult<TUser>(result.Data, result.Message);
+    }
+
+
+    public async Task<IResult> AddLoginLogAsync(bool isSuccessful, Guid userId, string description)
+    {
+        var ipAddress = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress;
+        var userAgent = _httpContextAccessor.HttpContext?.Request.Headers.UserAgent.ToString();
+
+        var result = await _userLoginLogRepository.AddAsync(new UserLoginLog<TUser, TRole>()
+        {
+            IpAddress = ipAddress,
+            IsSuccessful = isSuccessful,
+            LoginDate = DateTime.Now,
+            UserId = userId,
+            UserAgent = userAgent,
+            Description = description
+        });
+
+        if (!result.Success)
+        {
+            return new ErrorResult(result.Message);
+        }
+
+        return new SuccessResult(result.Message);
+
     }
 
 }

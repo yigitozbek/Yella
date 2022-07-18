@@ -21,7 +21,7 @@ public static class CoreObject
     /// </summary>
     /// <param name="obj"></param>
     /// <returns></returns>
-    public static DateTime ToDateTime(this object obj)
+    public static DateTime ToDateTime(this string obj)
     {
         var result = Convert.ToDateTime(obj);
         return result;

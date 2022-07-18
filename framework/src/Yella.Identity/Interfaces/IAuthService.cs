@@ -65,4 +65,13 @@ public interface IAuthService<TUser, TRole>
     /// <param name="unBlockedUserId"></param>
     /// <returns></returns>
     Task<IDataResult<TUser>> UnBlockAccountAsync(Guid id, Guid unBlockedUserId);
+
+    /// <summary>
+    /// This method saves log information when at login
+    /// </summary>
+    /// <param name="isSuccessful"></param>
+    /// <param name="userId"></param>
+    /// <param name="description"></param>
+    /// <returns></returns>
+    Task<IResult> AddLoginLogAsync(bool isSuccessful, Guid userId, string description);
 }
