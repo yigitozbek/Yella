@@ -1,6 +1,6 @@
 ﻿namespace Yella.Domain.Entities;
 
-public sealed class FullAuditedEntity : AuditedEntity, IFullAuditedEntity
+public abstract class FullAuditedEntity : AuditedEntity, IFullAuditedEntity
 {
     private FullAuditedEntity() : base()
     {
