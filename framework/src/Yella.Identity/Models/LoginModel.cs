@@ -1,7 +1,7 @@
 ﻿ 
-namespace Yella.Identity.Dtos;
+namespace Yella.Identity.Models;
 
-public class LoginDto 
+public class LoginModel 
 {
     public string Username { get; set; }
     public string Password { get; set; }

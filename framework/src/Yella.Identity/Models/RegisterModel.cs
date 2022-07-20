@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
- 
-namespace Yella.Identity.Dtos;
+﻿namespace Yella.Identity.Models;
 
-public class RegisterDto  
+public class RegisterModel  
 {
     public string UserName { get; set; }
     public string Password { get; set; }

@@ -31,21 +31,20 @@ public class IdentityUserService<TUser, TRole> : IIdentityUserService<TUser, TRo
 
     public async Task<TUser> GetWithRoleByIdAsync(Guid id)
     {
-        var query = await _userRepository.GetAsync(id,x => x.UserRoles, x => ((UserRole<TUser, TRole>)x.UserRoles).Role);
+        var query = await _userRepository.GetAsync(id, x => x.UserRoles, x => ((UserRole<TUser, TRole>)x.UserRoles).Role);
         return query;
     }
 
-    public async Task<TUser> GetByIdAsync(Guid id, params Expression<Func<TUser, object>>[] includes)
+    public async Task<TUser> GetByIdAsync(Guid id, params Expression<Func<TUser, object>>[]? includes)
     {
-
-        var query = includes != null 
-            ? await _userRepository.GetAsync(id, includes) 
+        var query = includes != null
+            ? await _userRepository.GetAsync(id, includes)
             : await _userRepository.GetAsync(id);
-            
+
         return query;
     }
 
-    public async Task<TUser> GetByUsernameAsync(string username, params Expression<Func<TUser, object>>[] includes)
+    public async Task<TUser?> GetByUsernameAsync(string username, params Expression<Func<TUser, object>>[] includes)
     {
         var query = includes is { Length: > 0 }
             ? (await _userRepository.WithIncludeAsync(includes)).First(x => x.UserName == username)
@@ -67,9 +66,9 @@ public class IdentityUserService<TUser, TRole> : IIdentityUserService<TUser, TRo
         return new SuccessDataResult<TUser>(input, result.Message);
     }
 
-    public async Task<string> GetFullNameAsync(Guid id)
+    public async Task<string?> GetFullNameAsync(Guid id)
     {
         var query = await _userRepository.FirstOrDefaultAsync(id);
-        return query == null ? null : $"{query.Name} {query.Surname}";
+        return query != null ? $"{query.Name} {query.Surname}" : null;
     }
 }

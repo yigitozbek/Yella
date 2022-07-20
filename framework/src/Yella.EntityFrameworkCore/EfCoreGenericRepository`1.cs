@@ -47,7 +47,7 @@ public class EfCoreGenericRepository<TEntity, TKey> : RepositoryBase<TEntity>, I
     /// <param name="id"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes)
+    public async Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[]? includes)
     {
         var query = _applicationDbContext.Queryable<TEntity>(x => x.Id.Equals(id));
         query = includes.Aggregate(query, (current, include) => current.Include(include));

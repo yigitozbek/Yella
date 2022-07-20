@@ -7,7 +7,7 @@
 		<IsPublishable>True</IsPublishable>
 		<Copyright>Yigit Ozbek</Copyright>
 		<Authors>Yigit Ozbek</Authors>
-		<Version>1.0.0.1</Version>
+		<Version>1.0.1</Version>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 

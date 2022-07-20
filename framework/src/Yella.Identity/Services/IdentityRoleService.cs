@@ -1,23 +1,27 @@
 ﻿using Yella.EntityFrameworkCore;
 using Yella.Identity.Constants;
-using Yella.Identity.Dtos;
 using Yella.Identity.Entities;
 using Yella.Identity.Interfaces;
+using Yella.Identity.Models;
 using Yella.Utilities.Results;
 
 namespace Yella.Identity.Services;
 
 public class IdentityRoleService<TUser, TRole> : IIdentityRoleService<TUser, TRole>
     where TUser : IdentityUser<TUser, TRole>
-    where TRole : IdentityRole<TUser, TRole>
+    where TRole : IdentityRole<TUser, TRole>, new()
 {
     private readonly IRepository<TRole, Guid> _roleRepository;
     private readonly IRepository<UserRole<TUser, TRole>, Guid> _userRoleRepository;
+    private readonly IRepository<PermissionRole<TUser, TRole>, Guid> _permissionRoleRepository;
 
-    public IdentityRoleService(IRepository<TRole, Guid> roleRepository, IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository)
+    public IdentityRoleService(IRepository<TRole, Guid> roleRepository,
+        IRepository<UserRole<TUser, TRole>, Guid> userRoleRepository,
+        IRepository<PermissionRole<TUser, TRole>, Guid> permissionRoleRepository)
     {
         _roleRepository = roleRepository;
         _userRoleRepository = userRoleRepository;
+        _permissionRoleRepository = permissionRoleRepository;
     }
 
     /// <summary>
@@ -93,6 +97,72 @@ public class IdentityRoleService<TUser, TRole> : IIdentityRoleService<TUser, TRo
     }
 
     /// <summary>
+    /// After this method adds the role, it also adds the permissions that depend on the role. 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<IDataResult<TRole>> AddWithPermissionAsync(RolePermissionModel input)
+    {
+        if (input == null) throw new ArgumentNullException(nameof(input));
+
+        var roleResult = await _roleRepository.AddAsync(new TRole() { Name = input.Name, Description = input.Description, Code = input.Code });
+
+        if (!roleResult.Success)
+        {
+            return new ErrorDataResult<TRole>(roleResult.Data, roleResult.Message);
+        }
+
+        var permissions = input.Permissions.Where(x => x.IsChecked).Select(permissionDto => new PermissionRole<TUser, TRole> { RoleId = roleResult.Data.Id, PermissionId = permissionDto.Id }).ToList();
+
+        var permissionResult = await _permissionRoleRepository.AddRangeAsync(permissions);
+
+        if (!permissionResult.Success)
+        {
+            return new ErrorDataResult<TRole>(roleResult.Data, permissionResult.Message);
+        }
+
+        return new SuccessDataResult<TRole>(roleResult.Data, permissionResult.Message);
+    }
+
+
+    /// <summary>
+    /// After this method update the role, it also updates the permissions that depend on the role. 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<IDataResult<TRole>> UpdateWithPermissionAsync(RolePermissionModel input)
+    {
+        if (input == null) throw new ArgumentNullException(nameof(input));
+
+        var roleResult = await _roleRepository.AddAsync(new TRole() { Name = input.Name, Description = input.Description, Code = input.Code });
+
+        if (!roleResult.Success)
+        {
+            return new ErrorDataResult<TRole>(roleResult.Data, roleResult.Message);
+        }
+
+        var permissionDeleteResult = await _permissionRoleRepository.DeleteAsync(x => x.RoleId == input.Id);
+
+        if (!permissionDeleteResult.Success)
+        {
+            return new ErrorDataResult<TRole>(roleResult.Data, permissionDeleteResult.Message);
+        }
+
+        var permissions = input.Permissions.Where(x => x.IsChecked).Select(permissionDto => new PermissionRole<TUser, TRole> { RoleId = roleResult.Data.Id, PermissionId = permissionDto.Id }).ToList();
+
+        var permissionResult = await _permissionRoleRepository.AddRangeAsync(permissions);
+
+        if (!permissionResult.Success)
+        {
+            return new ErrorDataResult<TRole>(roleResult.Data, permissionResult.Message);
+        }
+
+        return new SuccessDataResult<TRole>(roleResult.Data, permissionResult.Message);
+    }
+
+    /// <summary>
     /// This method is used to update Role
     /// </summary>
     /// <param name="input"></param>
@@ -119,7 +189,7 @@ public class IdentityRoleService<TUser, TRole> : IIdentityRoleService<TUser, TRo
     /// <param name="input"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(UserRoleAddDto input)
+    public async Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(CreateUserRoleModel input)
     {
 
         if (input == null) throw new ArgumentNullException(nameof(input));
@@ -146,7 +216,7 @@ public class IdentityRoleService<TUser, TRole> : IIdentityRoleService<TUser, TRo
     /// <param name="input"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IResult> RemoveUserRoleAsync(UserRoleRemoveDto input)
+    public async Task<IResult> RemoveUserRoleAsync(UserRoleRemoveModel input)
     {
 
         if (input == null) throw new ArgumentNullException(nameof(input));

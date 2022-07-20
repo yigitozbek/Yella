@@ -29,11 +29,18 @@ public interface IRepositoryBase<TEntity>
     Task<IResult> DeleteAsync(TEntity entity);
 
     /// <summary>
+    /// This method is used for delete entity by query
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <returns></returns>
+    Task<IResult> DeleteAsync(Expression<Func<TEntity, bool>> expression);
+
+    /// <summary>
     /// This method is used for delete entity 
     /// </summary>
     /// <param name="entities"></param>
     /// <returns></returns>
-    Task<IResult> DeleteRangeAsync(List<TEntity> entities);
+    Task<IResult> DeleteAsync(List<TEntity> entities);
 
     /// <summary>
     /// This method is used for updating entity.

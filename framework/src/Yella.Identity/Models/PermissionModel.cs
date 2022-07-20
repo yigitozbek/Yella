@@ -1,6 +1,6 @@
-﻿namespace Yella.Identity.Dtos;
+﻿namespace Yella.Identity.Models;
 
-public class PermissionDto 
+public class PermissionModel 
 {
     public short Id { get; set; }
     public string Name { get; set; }

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Yella.EntityFrameworkCore;
 using Yella.Identity.Constants;
-using Yella.Identity.Dtos;
 using Yella.Identity.Entities;
 using Yella.Identity.Helpers.Security.JWT;
 using Yella.Identity.Interfaces;
+using Yella.Identity.Models;
 using Yella.Utilities.Results;
 using Yella.Utilities.Security.Hashing;
 using IResult = Yella.Utilities.Results.IResult;
@@ -52,7 +52,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="registerDto"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IDataResult<TUser>> RegisterAsync(RegisterDto registerDto)
+    public async Task<IDataResult<TUser>> RegisterAsync(RegisterModel registerDto)
     {
 
         if (registerDto == null) throw new ArgumentNullException(nameof(registerDto));
@@ -98,7 +98,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="claims"></param>
     /// <returns>Return value Token returns</returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto, List<Claim>? claims = null)
+    public async Task<IDataResult<AccessToken>> LoginAsync(LoginModel loginDto, List<Claim>? claims = null)
     {
 
         if (loginDto == null) throw new ArgumentNullException(nameof(loginDto));
@@ -131,7 +131,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="loginDto"></param>
     /// <returns>Return value Token returns</returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto) => await LoginAsync(loginDto, null);
+    public async Task<IDataResult<AccessToken>> LoginAsync(LoginModel loginDto) => await LoginAsync(loginDto, null);
 
 
     /// <summary>
@@ -158,7 +158,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// </summary>
     /// <param name="resetPasswordDto"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    public async Task<IResult> ChangePasswordAsync(ResetPasswordDto resetPasswordDto)
+    public async Task<IResult> ChangePasswordAsync(ResetPasswordModel resetPasswordDto)
     {
         if (resetPasswordDto == null) throw new ArgumentNullException(nameof(resetPasswordDto));
 
@@ -203,7 +203,7 @@ public class AuthService<TUser, TRole> : IAuthService<TUser, TRole>
     /// <param name="forgotPasswordDto"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public IDataResult<AccessToken> ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto)
+    public IDataResult<AccessToken> ForgotPasswordAsync(ForgotPasswordModel forgotPasswordDto)
     {
 
         if (forgotPasswordDto == null) throw new ArgumentNullException(nameof(forgotPasswordDto));

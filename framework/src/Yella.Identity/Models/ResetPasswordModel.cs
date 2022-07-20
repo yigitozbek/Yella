@@ -1,7 +1,7 @@
 ﻿
-namespace Yella.Identity.Dtos;
+namespace Yella.Identity.Models;
 
-public class ResetPasswordDto  
+public class ResetPasswordModel  
 {
     public Guid Id { get; set; }
 

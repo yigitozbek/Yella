@@ -103,14 +103,32 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     }
 
     /// <summary>
+    /// This method is used for delete entity by query
+    /// </summary>
+    /// <param name="expression"></param>
+    /// <returns></returns>
+    public async Task<IResult> DeleteAsync(Expression<Func<TEntity, bool>> expression)
+    {
+        var query = await _applicationDbContext.Queryable(expression).ToListAsync();
+
+        _applicationDbContext.Set<TEntity>().RemoveRange(query);
+
+        await _applicationDbContext.SaveChangesAsync();
+
+        return new SuccessResult(CrudMessage.Removed);
+    }
+
+    /// <summary>
     /// This method is used for delete entities 
     /// </summary>
     /// <param name="entities"></param>
     /// <returns></returns>
-    public async Task<IResult> DeleteRangeAsync(List<TEntity> entities)
+    public async Task<IResult> DeleteAsync(List<TEntity> entities)
     {
         _applicationDbContext.Set<TEntity>().RemoveRange(entities);
+
         await _applicationDbContext.SaveChangesAsync();
+
         return new SuccessResult(CrudMessage.Successful);
     }
 

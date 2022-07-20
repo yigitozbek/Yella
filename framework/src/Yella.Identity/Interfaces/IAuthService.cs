@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Yella.Identity.Dtos;
 using Yella.Identity.Entities;
 using Yella.Identity.Helpers.Security.JWT;
+using Yella.Identity.Models;
 using Yella.Utilities.Results;
 
 namespace Yella.Identity.Interfaces;
@@ -17,7 +17,7 @@ public interface IAuthService<TUser, TRole>
     /// <param name="registerDto"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IDataResult<TUser>> RegisterAsync(RegisterDto registerDto);
+    Task<IDataResult<TUser>> RegisterAsync(RegisterModel registerDto);
 
     /// <summary>
     /// This method allows it to be login
@@ -26,7 +26,7 @@ public interface IAuthService<TUser, TRole>
     /// <param name="claims"></param>
     /// <returns>Return value Token returns</returns>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto, List<Claim> claims);
+    Task<IDataResult<AccessToken>> LoginAsync(LoginModel loginDto, List<Claim> claims);
 
     /// <summary>
     /// This method allows it to be login
@@ -34,7 +34,7 @@ public interface IAuthService<TUser, TRole>
     /// <param name="loginDto"></param>
     /// <returns>Return value Token returns</returns>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IDataResult<AccessToken>> LoginAsync(LoginDto loginDto);
+    Task<IDataResult<AccessToken>> LoginAsync(LoginModel loginDto);
 
     /// <summary>
     /// This method fetches the last login logs
@@ -48,7 +48,7 @@ public interface IAuthService<TUser, TRole>
     /// </summary>
     /// <param name="resetPasswordDto"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IResult> ChangePasswordAsync(ResetPasswordDto resetPasswordDto);
+    Task<IResult> ChangePasswordAsync(ResetPasswordModel resetPasswordDto);
 
     /// <summary>
     /// This method is used to block the user. User cannot login again.

@@ -1,5 +1,5 @@
-﻿using Yella.Identity.Dtos;
-using Yella.Identity.Entities;
+﻿using Yella.Identity.Entities;
+using Yella.Identity.Models;
 using Yella.Utilities.Results;
 
 namespace Yella.Identity.Interfaces;
@@ -14,7 +14,7 @@ public interface IIdentityRoleService<TUser, TRole>
     /// <param name="input"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(UserRoleAddDto input);
+    Task<IDataResult<UserRole<TUser, TRole>>> AddUserRoleAsync(CreateUserRoleModel input);
 
     /// <summary>
     /// This method is used to remove Role to User.
@@ -22,7 +22,7 @@ public interface IIdentityRoleService<TUser, TRole>
     /// <param name="input"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    Task<IResult> RemoveUserRoleAsync(UserRoleRemoveDto input);
+    Task<IResult> RemoveUserRoleAsync(UserRoleRemoveModel input);
 
     /// <summary>
     /// This method fetches roles by user Id.
@@ -66,5 +66,25 @@ public interface IIdentityRoleService<TUser, TRole>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     Task<IDataResult<TRole>> UpdateAsync(TRole input);
+
+
+    /// <summary>
+    /// After this method adds the role, it also adds the permissions that depend on the role. 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    Task<IDataResult<TRole>> AddWithPermissionAsync(RolePermissionModel input);
+
+
+    /// <summary>
+    /// After this method update the role, it also updates the permissions that depend on the role. 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    Task<IDataResult<TRole>> UpdateWithPermissionAsync(RolePermissionModel input);
+
+
 
 }
