@@ -1,9 +1,10 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.FileIO;
 using Yella.Context;
 using Yella.Domain.Entities;
 using Yella.EntityFrameworkCore.Constants;
-using Yella.EntityFrameworkCore.Models;
+using Yella.Utilities;
 using Yella.Utilities.Results;
 
 namespace Yella.EntityFrameworkCore;
@@ -186,14 +187,19 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         return query;
     }
 
-    public async Task<IEnumerable<TEntity>> GetListAsync() => await _applicationDbContext.Queryable<TEntity>().ToListAsync();
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <returns></returns>
+    public async Task<IEnumerable<TEntity>> GetListAsync() => await GetListBaseAsync(null, null).ToListAsync();
 
     /// <summary>
     /// This method returns the data you are querying
     /// </summary>
     /// <param name="expression"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression) => await GetListAsync(null, expression, null);
+    /// <exception cref="NotImplementedException"></exception>
+    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression) => await GetListBaseAsync(expression, null).ToListAsync();
 
     /// <summary>
     /// This method returns the data you are querying
@@ -201,42 +207,28 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes) => await GetListAsync(null, expression, includes);
+    /// <exception cref="NotImplementedException"></exception>
+    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes) => await GetListBaseAsync(expression, includes).ToListAsync();
 
     /// <summary>
     /// This method returns the data you are querying
     /// </summary>
-    /// <param name="includes"></param>
-    /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(params Expression<Func<TEntity, object>>[]? includes) => await GetListAsync(null, null, includes);
-
-    /// <summary>
-    /// This method returns the data you are querying
-    /// </summary>
-    /// <param name="filter"></param>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter? filter = null, Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[]? includes)
+    private IQueryable<TEntity> GetListBaseAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[]? includes)
     {
         var query =
             expression != null
                 ? _applicationDbContext.Queryable(expression)
                 : _applicationDbContext.Queryable<TEntity>();
 
-        if (filter != null)
-        {
-            query = query
-                .Skip((filter.PageNumber - 1) * filter.PageSize)
-                .Take(filter.PageSize);
-        }
-
         if (includes != null)
         {
             query = includes.Aggregate(query, (current, include) => current.Include(include));
         }
 
-        return await query.ToListAsync();
+        return query;
     }
 
     /// <summary>
@@ -244,8 +236,20 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// </summary>
     /// <param name="filter"></param>
     /// <param name="expression"></param>
+    /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression) => await GetListAsync(filter, expression, null);
+    public async Task<PagedResult<TEntity>> GetListForPagingAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes)
+    {
+        var filterEntity = new PagedResult<TEntity>
+        {
+            Results = await GetListBaseAsync(expression, includes).Skip((filter.CurrentPage - 1) * filter.PageSize).Take(filter.PageSize).ToListAsync(),
+            CurrentPage = filter.CurrentPage,
+            TotalCount = GetListBaseAsync(expression, includes).Count(),
+            PageSize = filter.PageSize
+        };
+
+        return filterEntity;
+    }
 
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.
@@ -257,7 +261,5 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         var query = await _applicationDbContext.Queryable(expression).FirstOrDefaultAsync();
         return query;
     }
-
-
 
 }
