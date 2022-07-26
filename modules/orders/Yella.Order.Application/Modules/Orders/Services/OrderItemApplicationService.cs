@@ -1,5 +1,6 @@
 ﻿using Yella.AutoMapper.Extensions;
 using Yella.EntityFrameworkCore;
+using Yella.EntityFrameworkCore.Models;
 using Yella.Order.Data.Orders.Dtos;
 using Yella.Order.Data.Orders.Interfaces;
 using Yella.Order.Domain.Orders;
@@ -10,15 +11,18 @@ namespace Yella.Order.Application.Modules.Orders.Services
     public class OrderItemApplicationService : IOrderItemService
     {
         private readonly IRepository<OrderItem, Guid> _orderItemRepository;
-
-        public OrderItemApplicationService(IRepository<OrderItem, Guid> orderItemRepository)
+        private readonly IRepository<Demand, Guid> _demandRepository;
+        public OrderItemApplicationService(IRepository<OrderItem, Guid> orderItemRepository, IRepository<Demand, Guid> demandRepository)
         {
             _orderItemRepository = orderItemRepository;
+            _demandRepository = demandRepository;
         }
 
-        public async Task<List<OrderItemDTO>> GetListAsync()
+        public async Task<List<OrderItemDTO>> GetListAsync(PaginationFilter filter)
         {
-            var query = await _orderItemRepository.GetListAsync();
+            var test = await _demandRepository.GetListAsync(filter);
+
+            var query = await _orderItemRepository.GetListAsync(filter);
             return query.ToMapper<List<OrderItemDTO>>();
         }
 

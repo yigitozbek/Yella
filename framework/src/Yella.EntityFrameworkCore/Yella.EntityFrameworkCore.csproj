@@ -21,4 +21,8 @@
 		<ProjectReference Include="..\Yella.Utilities\Yella.Utilities.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
 </Project>

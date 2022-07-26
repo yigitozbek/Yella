@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Yella.Domain.Entities;
+using Yella.EntityFrameworkCore.Models;
 using Yella.Utilities.Results;
 
 namespace Yella.EntityFrameworkCore;
@@ -78,12 +79,19 @@ public interface IRepositoryBase<TEntity>
     /// <returns></returns>
     Task<int> CountAsync(Expression<Func<TEntity, bool>> expression);
 
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <returns></returns>
+    Task<IEnumerable<TEntity>> GetListAsync();
+
     /// <summary>
     /// This method returns the data you are querying
     /// </summary>
     /// <param name="expression"></param>
     /// <returns></returns>
-    Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null);
+    Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression);
 
     /// <summary>
     /// This method returns the data you are querying
@@ -91,7 +99,31 @@ public interface IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[] includes);
+    Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes);
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    Task<IEnumerable<TEntity>> GetListAsync(params Expression<Func<TEntity, object>>[]? includes);
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter? filter = null, Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[]? includes);
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <param name="expression"></param>
+    /// <returns></returns>
+    Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression);
 
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.
@@ -99,6 +131,7 @@ public interface IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <returns></returns>
     Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression);
+
 
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.
@@ -114,4 +147,6 @@ public interface IRepositoryBase<TEntity>
     /// <param name="includes"></param>
     /// <returns></returns>
     Task<IEnumerable<TEntity>> WithIncludeAsync(params Expression<Func<TEntity, object>>[] includes);
+
+
 }

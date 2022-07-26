@@ -1,4 +1,5 @@
-﻿using Yella.Order.Data.Orders.Dtos;
+﻿using Yella.EntityFrameworkCore.Models;
+using Yella.Order.Data.Orders.Dtos;
 using Yella.Utilities.Results;
 
 namespace Yella.Order.Data.Orders.Interfaces
@@ -6,7 +7,7 @@ namespace Yella.Order.Data.Orders.Interfaces
     public interface IOrderItemService
     {
         Task<OrderItemDTO?> GetByIdAsync(Guid id);
-        Task<List<OrderItemDTO>> GetListAsync();
+        Task<List<OrderItemDTO>> GetListAsync(PaginationFilter filter);
         Task<IDataResult<OrderItemDTO>> AddAsync(OrderItemDTO input);
         Task<IDataResult<OrderItemDTO>> UpdateAsync(OrderItemDTO input);
         Task<IResult> DeleteAsync(Guid id);

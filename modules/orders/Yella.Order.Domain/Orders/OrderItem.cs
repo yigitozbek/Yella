@@ -1,4 +1,7 @@
-﻿using Yella.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
+using Yella.Domain.Entities;
 
 namespace Yella.Order.Domain.Orders
 {
@@ -21,4 +24,38 @@ namespace Yella.Order.Domain.Orders
 
         public Guid CompanyId { get; set; }
     }
+
+    public class Demand : FullAuditedEntity<Guid>, ICompanyBase
+    {
+        public Demand()
+        {
+            IsActive = true;
+            Date = DateTime.Now;
+        }
+
+
+
+        [MaxLength(50)]
+        public string Number { get; set; }
+
+
+        public Guid CompanyId { get; set; }
+
+
+
+        public Guid CustomerId { get; set; }
+
+
+
+        public DateTime Date { get; set; }
+
+        [MaxLength(250)]
+        public string Description { get; set; }
+
+
+        public bool IsActive { get; set; }
+    }
+
+
+
 }

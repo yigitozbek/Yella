@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Yella.Context;
 using Yella.Domain.Entities;
 using Yella.EntityFrameworkCore.Constants;
+using Yella.EntityFrameworkCore.Models;
 using Yella.Utilities.Results;
 
 namespace Yella.EntityFrameworkCore;
@@ -66,7 +67,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <returns></returns>
     public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
     {
-        var query = _applicationDbContext.Queryable<TEntity>(expression);
+        var query = _applicationDbContext.Queryable(expression);
 
         query = includes.Aggregate(query, (current, include) => current.Include(include));
 
@@ -185,20 +186,14 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         return query;
     }
 
+    public async Task<IEnumerable<TEntity>> GetListAsync() => await _applicationDbContext.Queryable<TEntity>().ToListAsync();
+
     /// <summary>
     /// This method returns the data you are querying
     /// </summary>
     /// <param name="expression"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null)
-    {
-        var query =
-         expression != null
-            ? await _applicationDbContext.Queryable(expression).ToListAsync()
-            : await _applicationDbContext.Queryable<TEntity>().ToListAsync();
-
-        return query;
-    }
+    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression) => await GetListAsync(null, expression, null);
 
     /// <summary>
     /// This method returns the data you are querying
@@ -206,16 +201,51 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[] includes)
-    {
-        var query = expression != null
-            ? _applicationDbContext.Queryable(expression)
-            : _applicationDbContext.Queryable<TEntity>();
+    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes) => await GetListAsync(null, expression, includes);
 
-        query = includes.Aggregate(query, (current, include) => current.Include(include));
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    public async Task<IEnumerable<TEntity>> GetListAsync(params Expression<Func<TEntity, object>>[]? includes) => await GetListAsync(null, null, includes);
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    public async Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter? filter = null, Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[]? includes)
+    {
+        var query =
+            expression != null
+                ? _applicationDbContext.Queryable(expression)
+                : _applicationDbContext.Queryable<TEntity>();
+
+        if (filter != null)
+        {
+            query = query
+                .Skip((filter.PageNumber - 1) * filter.PageSize)
+                .Take(filter.PageSize);
+        }
+
+        if (includes != null)
+        {
+            query = includes.Aggregate(query, (current, include) => current.Include(include));
+        }
 
         return await query.ToListAsync();
     }
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <param name="expression"></param>
+    /// <returns></returns>
+    public async Task<IEnumerable<TEntity>> GetListAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression) => await GetListAsync(filter, expression, null);
 
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.

@@ -50,6 +50,7 @@ namespace Yella.Order.Context.EntityFrameworkCore
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.NavigationBaseIncludeIgnored));
 
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Demand> Demands { get; set; }
 
 
         #region Identities

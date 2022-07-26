@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Yella.Identity.Dtos;
 using Yella.Identity.Helpers.Security.JWT;
 using Yella.Identity.Interfaces;
+using Yella.Identity.Models;
 using Yella.Order.Domain.Identities;
 using Yella.Utilities.Results;
 
@@ -19,7 +19,7 @@ namespace Yella.Order.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IDataResult<AccessToken>> Login(LoginDto input)
+        public async Task<IDataResult<AccessToken>> Login(LoginModel input)
         {
             var result = await _authService.LoginAsync(input);
             return result;

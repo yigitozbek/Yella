@@ -19,7 +19,7 @@ using Yella.Order.Context.EntityFrameworkCore;
 using Yella.Order.Domain.Identities;
 using Yella.Order.WebAPI.Controllers;
 using Yella.Utilities.Extensions;
-using Yella.Utilities.Security.Routing;
+using Yella.Utilities.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,33 +62,10 @@ var securityReq = new OpenApiSecurityRequirement()
     }
 };
 
-var contact = new OpenApiContact()
-{
-    Name = "",
-    Email = "",
-    Url = new Uri("")
-};
-
-var license = new OpenApiLicense()
-{
-    Name = "Free License",
-    Url = new Uri("")
-};
-
-var info = new OpenApiInfo()
-{
-    Version = "v1",
-    Title = "",
-    Description = "",
-    TermsOfService = new Uri(""),
-    Contact = contact,
-    License = license
-};
-
+ 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(o =>
 {
-    o.SwaggerDoc("v1", info);
     o.AddSecurityDefinition("Bearer", securityScheme);
     o.AddSecurityRequirement(securityReq);
 });
