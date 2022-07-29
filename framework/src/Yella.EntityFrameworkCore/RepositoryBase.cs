@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.FileIO;
 using Yella.Context;
 using Yella.Domain.Entities;
 using Yella.EntityFrameworkCore.Constants;
@@ -216,7 +215,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    private IQueryable<TEntity> GetListBaseAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[]? includes)
+    private IQueryable<TEntity> GetListBaseAsync(Expression<Func<TEntity, bool>>? expression = null ,params  Expression<Func<TEntity, object>>[]? includes)
     {
         var query =
             expression != null
@@ -234,17 +233,46 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     /// <summary>
     /// This method returns the data you are querying
     /// </summary>
+    /// <param name="expression"></param>
+    /// <param name="includes"></param>
+    /// <returns></returns>
+    private IQueryable<TEntity> GetListBaseAsync(Expression<Func<TEntity, bool>>? expression = null, Expression<Func<TEntity, object>>? orderBy = null,  bool isDesc = false, params Expression<Func<TEntity, object>>[]? includes)
+    {
+
+        var query =
+            expression != null
+                ? _applicationDbContext.Queryable(expression)
+                : _applicationDbContext.Queryable<TEntity>();
+
+        if (includes != null)
+        {
+            query = includes.Aggregate(query, (current, include) => current.Include(include));
+        }
+
+        if (orderBy != null)
+        {
+            query = isDesc
+                ? query.OrderByDescending(orderBy)
+                : query.OrderBy(orderBy);
+        }
+
+        return query;
+    }
+
+    /// <summary>
+    /// This method returns the data you are querying
+    /// </summary>
     /// <param name="filter"></param>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    public async Task<PagedResult<TEntity>> GetListForPagingAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes)
+    public async Task<PagedResult<TEntity>> GetListForPagingAsync(PaginationFilter<TEntity> filter, Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes)
     {
         var filterEntity = new PagedResult<TEntity>
         {
-            Results = await GetListBaseAsync(expression, includes).Skip((filter.CurrentPage - 1) * filter.PageSize).Take(filter.PageSize).ToListAsync(),
+            Results = await GetListBaseAsync(expression,filter.OrderBy,filter.IsDesc, includes).Skip((filter.CurrentPage - 1) * filter.PageSize).Take(filter.PageSize).ToListAsync(),
             CurrentPage = filter.CurrentPage,
-            TotalCount = GetListBaseAsync(expression, includes).Count(),
+            TotalCount = GetListBaseAsync(expression, filter.OrderBy, filter.IsDesc, includes).Count(),
             PageSize = filter.PageSize
         };
 

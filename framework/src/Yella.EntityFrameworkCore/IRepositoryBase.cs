@@ -107,7 +107,7 @@ public interface IRepositoryBase<TEntity>
     /// <param name="expression"></param>
     /// <param name="includes"></param>
     /// <returns></returns>
-    Task<PagedResult<TEntity>> GetListForPagingAsync(PaginationFilter filter, Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes);
+    Task<PagedResult<TEntity>> GetListForPagingAsync(PaginationFilter<TEntity> filter, Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includes);
 
     /// <summary>
     /// This method is used for the absence of data. Returns a single data as a return value.
